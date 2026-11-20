@@ -1,0 +1,14 @@
+ERROR   API status error from OpenAI API: Error code: 400 - Function tools with reasoning_effort are not supported for gpt-5.6-luna in /v1/chat/completions. To use function tools, use /v1/responses or set reasoning_effort to 'none'.
+ERROR   Non-retryable model provider error: Function tools with reasoning_effort are not supported for gpt-5.6-luna in /v1/chat/completions. To use function tools, use /v1/responses or set reasoning_effort to 'none'.
+ERROR   Error in Agent run: Function tools with reasoning_effort are not supported for gpt-5.6-luna in /v1/chat/completions. To use function tools, use /v1/responses or set reasoning_effort to 'none'.
+================================================================================================
+DIA-2026-0101 · situação: ERRO
+------------------------------------------------------------------------------------------------
+o conferente vê: Não foi possível concluir a instrução automática deste pedido. Ele foi devolvido à análise manual.
+motivo técnico (registrado, não exibido ao conferente):
+  - execução terminou com status ERROR
+consultas:
+consumo: 0 chamadas ao modelo · entrada por chamada [] · total 0 entrada / 0 saída · US$ 0.00000 · 0.9 s
+gabarito: apto_para_autorizacao · quantidade 3.5 · valor 980.0 · autorização superior False · não atendidos []
+================================================================================================
+1 pedido(s) · custo total US$ 0.00000
