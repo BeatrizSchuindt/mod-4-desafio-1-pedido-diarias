@@ -1,0 +1,29 @@
+1. Confiabilidade composta (Aula 01, Tabela 1)
+
+passos  99% por passo  95% por passo
+     1          99.0%          95.0%
+     2          98.0%          90.2%
+     3          97.0%          85.7%
+     4          96.1%          81.5%
+     5          95.1%          77.4%
+     8          92.3%          66.3%
+     9          91.4%          63.0%
+    10          90.4%          59.9%
+
+Casos certos esperados nos 14 do gabarito, por tipo de execução:
+  a 99% por passo: 13.4 de 14
+  a 95% por passo: 11.1 de 14
+
+2. Custo por execução (acréscimo central de 120 tokens; faixa 90 a 150)
+
+execução           passos   entrada  saída       US$           faixa US$
+pedido completo         5    11,500    860   0.00333   0.00327–0.00339
+diligência              2     4,240    740   0.00174   0.00173–0.00174
+complementação          5    15,500    860   0.00413   0.00407–0.00419
+teto (limite 8)         9    23,940   1020   0.00601   pior caso: 8 ferramentas em sequência + resposta
+
+3. Custo mensal
+
+  400 pedidos/mês: 333 completos, 67 em diligência (+ 67 complementações)
+  execuções no mês: 467 · custo estimado: US$ 1.50
+  custo médio por pedido protocolado: US$ 0.00375

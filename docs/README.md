@@ -9,7 +9,7 @@ repositório e são escritos no fim, a partir do que está registrado aqui.
 | Etapa | Assunto | Status | Registro |
 |---|---|---|---|
 | 0 | Preparação do ambiente | concluída | [etapa-0](etapa-0-preparacao.md) |
-| 1 | Desenho do processo e PEAS | a fazer | |
+| 1 | Desenho do processo e PEAS | concluída | [etapa-1](etapa-1-desenho.md) |
 | 2 | Ferramentas sobre os dados do órgão | a fazer | |
 | 3 | Agente, saída estruturada, limites e filtro | a fazer | |
 | 4 | Memória, custo por turno e eliminação | a fazer | |
