@@ -1,0 +1,67 @@
+[A · sem memória] executando...
+[B · histórico da sessão] executando...
+[C · histórico + memórias do usuário] executando...
+[D · B com user_id da matrícula corrigida] executando...
+
+    pedido         |        turno 1: pedido         |        turno 2: complementação         | aplicada  |      US$
+                   | situação    1ª cham.    total | situação    1ª cham.    total  cham. |  certo?   |    T1+T2
+----------------------------------------------------------------------------------------------------------------
+A   DIA-2026-0111  | entregue        2866     5835 | recusada        2765     8516      3 |    não    |  0.00435
+A   DIA-2026-0112  | entregue        2866     5829 | recusada        2768     5625      2 |    não    |  0.00368
+B   DIA-2026-0111  | entregue        2866     5835 | entregue        3628    19592      5 |    SIM    |  0.00699
+B   DIA-2026-0112  | entregue        2866     5829 | entregue        3554    19216      5 |    SIM    |  0.00673
+C   DIA-2026-0111  | entregue        2891     7125 | entregue        3787    21685      5 |    SIM    |  0.00782
+C   DIA-2026-0112  | entregue        2891     7103 | entregue        3662    21043      5 |    SIM    |  0.00742
+D   DIA-2026-0112  | entregue        2866     5829 | recusada        2768     5625      2 |    não    |  0.00376
+
+Legenda: A sem memória · B histórico da sessão · C histórico + memórias do usuário · D = B com user_id da matrícula corrigida no turno 2
+
+Detalhe por turno (entrada de cada chamada do agente; 'fora' = entrada total menos a
+soma das chamadas, isto é, o que o Agno gastou fora do agente, como a extração de memórias)
+  A DIA-2026-0111 pedido          chamadas [2866, 2969] · fora 0 · 8.7 s
+  A DIA-2026-0111 complementação  chamadas [2765, 2837, 2914] · fora 0 · 9.4 s
+  A DIA-2026-0112 pedido          chamadas [2866, 2963] · fora 0 · 6.6 s
+  A DIA-2026-0112 complementação  chamadas [2768, 2857] · fora 0 · 5.9 s
+  B DIA-2026-0111 pedido          chamadas [2866, 2969] · fora 0 · 7.7 s
+  B DIA-2026-0111 complementação  chamadas [3628, 3731, 3928, 4109, 4196] · fora 0 · 11.8 s
+  B DIA-2026-0112 pedido          chamadas [2866, 2963] · fora 0 · 6.2 s
+  B DIA-2026-0112 complementação  chamadas [3554, 3656, 3853, 4034, 4119] · fora 0 · 11.5 s
+  C DIA-2026-0111 pedido          chamadas [2891, 2994] · fora 1240 · 7.2 s
+  C DIA-2026-0111 complementação  chamadas [3787, 3890, 4087, 4268, 4355] · fora 1298 · 11.1 s
+  C DIA-2026-0112 pedido          chamadas [2891, 2988] · fora 1224 · 5.9 s
+  C DIA-2026-0112 complementação  chamadas [3662, 3764, 3961, 4142, 4227] · fora 1287 · 10.3 s
+  D DIA-2026-0112 pedido          chamadas [2866, 2963] · fora 0 · 6.8 s
+  D DIA-2026-0112 complementação  chamadas [2768, 2857] · fora 0 · 6.8 s
+
+O turno da complementação
+  A DIA-2026-0111: recusada · recomendação diligencia · matrícula  · valor None
+      motivo: consultar_servidor consultou a matrícula , que não consta do pedido nem da complementação
+      motivo: consultar_servidor usou o nome '', diferente do nome do pedido
+      motivo: calcular_diarias usou data_pedido='', mas o pedido e a complementação informam '2026-10-09'
+  A DIA-2026-0112: recusada · recomendação diligencia · matrícula 207418 · valor None
+      motivo: consultar_servidor usou o nome '*', diferente do nome do pedido
+  B DIA-2026-0111: entregue · recomendação apto_para_autorizacao · matrícula 206689 · valor 980.0
+  B DIA-2026-0112: entregue · recomendação apto_para_autorizacao · matrícula 207418 · valor 770.0
+  C DIA-2026-0111: entregue · recomendação apto_para_autorizacao · matrícula 206689 · valor 980.0
+  C DIA-2026-0112: entregue · recomendação apto_para_autorizacao · matrícula 207418 · valor 770.0
+  D DIA-2026-0112: recusada · recomendação diligencia · matrícula 207418 · valor None
+      motivo: consultar_servidor usou o nome '*', diferente do nome do pedido
+
+O que ficou gravado em cada banco
+  A · sem memória
+      nenhum banco (configuração sem memória)
+  B · histórico da sessão
+      tabelas: {'agno_runs': 4, 'agno_schema_versions': 2, 'agno_sessions': 2}
+      sessão DIA-2026-0111: user_id 206689, 2 execução(ões) gravada(s)
+      sessão DIA-2026-0112: user_id 207481, 2 execução(ões) gravada(s)
+  C · histórico + memórias do usuário
+      tabelas: {'agno_memories': 2, 'agno_runs': 4, 'agno_schema_versions': 3, 'agno_sessions': 2}
+      sessão DIA-2026-0111: user_id 206689, 2 execução(ões) gravada(s)
+      sessão DIA-2026-0112: user_id 207481, 2 execução(ões) gravada(s)
+      memória do user_id 206689: Beatriz Moraes Cunha (matrícula 206689) tem o pedido de diárias DIA-2026-0111, cuja complementação foi recebida em 09/10/2026, em instrução para viagem a Colniza-MT, com partida em 17/11/2026 e retorno previsto para 20/11/2026, usando veículo oficial, para operação conjunta de fiscalização com a polícia ambiental.
+      memória do user_id 207481: Carla Regina Souza, matrícula correta 207418, tem um pedido de diárias DIA-2026-0112 para Alta Floresta-MT, de 24 a 27 de novembro de 2026, com transporte em veículo oficial, para apoio técnico ao inventário de fauna de parque estadual. A complementação, recebida em 9 de outubro de 2026, corrigiu a matrícula anteriormente informada por erro de digitação.
+  D · B com user_id da matrícula corrigida
+      tabelas: {'agno_runs': 2, 'agno_schema_versions': 2, 'agno_sessions': 1}
+      sessão DIA-2026-0112: user_id 207481, 2 execução(ões) gravada(s)
+
+Custo total: US$ 0.04075 · resultados em resultados/memoria_custo_por_turno.json

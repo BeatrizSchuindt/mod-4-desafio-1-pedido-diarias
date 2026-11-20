@@ -12,6 +12,12 @@ pedido e recebem um `Resultado`. Dentro dele, a ordem é sempre a mesma:
 Só uma instrução que passa pelos quatro passos é entregue (`situacao == "entregue"`). Nos
 demais casos, o formulário mostra a MENSAGEM_PADRAO e o pedido volta à análise manual; a
 instrução recusada fica em `instrucao_recusada` apenas para a medição, e nunca vai à tela.
+
+Memória: cada pedido é uma sessão. O `session_id` é o número do pedido e o `user_id` é a
+matrícula do solicitante, informados a cada `run`, e não na construção do agente. Assim um
+único agente, guardado em cache pelo formulário, atende todos os pedidos sem misturá-los.
+Quando o pedido volta em diligência, a complementação é enviada na mesma sessão e o agente
+recupera o pedido pelo histórico.
 """
 import json
 import time
@@ -22,6 +28,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 from agno.agent import Agent
+from agno.db.sqlite import SqliteDb
 from agno.models.openai import OpenAIChat
 from agno.run.base import RunStatus
 from dotenv import load_dotenv
@@ -31,11 +38,18 @@ from contrato import Instrucao
 from ferramentas import FERRAMENTAS
 from filtro_dados_pessoais import filtro_dados_pessoais
 
-load_dotenv(Path(__file__).parent / ".env")
+BASE = Path(__file__).parent
+load_dotenv(BASE / ".env")
 
 MODELO = "gpt-5.6-luna"
 USD_ENTRADA, USD_SAIDA = 0.20, 1.20     # US$ por milhão de tokens (Aula 06, Seção 4.2)
 TOOL_CALL_LIMIT = 8                     # 4 consultas nominais + margem (Figura 1 do enunciado)
+
+# Banco do agente: cópia de trabalho, com dados pessoais; fica fora do Git (*.db no .gitignore).
+BANCO_PADRAO = BASE / "banco" / "instrucoes.db"
+# Teto do histórico: um pedido tem o turno original e, no máximo, uma ou duas complementações.
+NUM_HISTORY_RUNS = 3
+MEMORIAS = ("nenhuma", "historico", "historico_e_usuario")
 
 MENSAGEM_PADRAO = ("Não foi possível concluir a instrução automática deste pedido. "
                    "Ele foi devolvido à análise manual.")
@@ -127,7 +141,8 @@ def texto_da_complementacao(complementacao: dict) -> str:
             f"{complementacao['data']}:\n{complementacao['texto']}")
 
 
-def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False) -> Agent:
+def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False,
+                     memoria: str = "historico", banco: Path = BANCO_PADRAO) -> Agent:
     """Monta o agente. Fica em função própria para o formulário guardá-lo em cache.
 
     `paralelas` liga as chamadas paralelas de ferramentas, desligadas por padrão porque o
@@ -137,12 +152,27 @@ def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False) -
     `provocar_erro_api` monta o modelo sem reasoning_effort="none", configuração que a API
     recusa quando há ferramentas na família GPT-5.6; serve para mostrar que o erro não chega ao
     conferente.
+
+    `memoria` escolhe uma das três configurações medidas em medir_memoria.py:
+    - "nenhuma": sem banco; cada execução começa do zero;
+    - "historico": SqliteDb + histórico da sessão, com teto de NUM_HISTORY_RUNS execuções
+      (a configuração do sistema);
+    - "historico_e_usuario": o histórico mais as memórias do usuário (update_memory_on_run),
+      fatos que o Agno extrai sobre a pessoa e guarda entre sessões.
     """
+    if memoria not in MEMORIAS:
+        raise ValueError(f"memória '{memoria}' desconhecida; use uma de {MEMORIAS}")
     if provocar_erro_api:
         modelo = OpenAIChat(id=MODELO)
     else:
         modelo = OpenAIChat(id=MODELO, reasoning_effort="none",
                             request_params={"parallel_tool_calls": paralelas})
+    persistencia = {}
+    if memoria != "nenhuma":
+        Path(banco).parent.mkdir(parents=True, exist_ok=True)
+        persistencia = {"db": SqliteDb(db_file=str(banco)), "add_history_to_context": True,
+                        "num_history_runs": NUM_HISTORY_RUNS,
+                        "update_memory_on_run": memoria == "historico_e_usuario"}
     return Agent(
         model=modelo,
         tools=FERRAMENTAS,
@@ -152,6 +182,7 @@ def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False) -
         pre_hooks=[filtro_dados_pessoais()],
         markdown=False,
         telemetry=False,
+        **persistencia,
     )
 
 
@@ -160,8 +191,9 @@ def _medidas(resposta, inicio: float) -> dict:
     metricas = getattr(resposta, "metrics", None)
     entrada = getattr(metricas, "input_tokens", 0) or 0
     saida = getattr(metricas, "output_tokens", 0) or 0
+    # Mensagens que vieram do histórico (from_history) são de execuções anteriores e não contam.
     por_chamada = [m.metrics.input_tokens for m in (getattr(resposta, "messages", None) or [])
-                   if m.role == "assistant" and m.metrics]
+                   if m.role == "assistant" and m.metrics and not getattr(m, "from_history", False)]
     return {"segundos": round(time.perf_counter() - inicio, 1),
             "chamadas_ao_modelo": len(por_chamada),
             "entrada_por_chamada": por_chamada,
@@ -171,10 +203,14 @@ def _medidas(resposta, inicio: float) -> dict:
 
 
 def instruir(pedido: dict, complementacao: dict | None = None, agente: Agent | None = None,
-             **identificadores) -> Resultado:
+             user_id: str | None = None) -> Resultado:
     """Instrui um pedido (ou a sua complementação) e devolve o resultado já conferido.
 
-    `identificadores` repassa session_id e user_id ao `run`, usados quando houver memória.
+    Cada pedido é uma sessão: `session_id` é o número do pedido. O `user_id` é a matrícula
+    como protocolada no pedido, também no turno da complementação, mesmo quando ela corrige a
+    matrícula: a sessão foi aberta com esse identificador, e o Agno só a encontra com ele
+    (ver medir_memoria.py, configuração D). O parâmetro `user_id` existe para provocar essa
+    falha; o sistema não o usa.
     """
     agente = agente or construir_agente()
     texto = texto_da_complementacao(complementacao) if complementacao else texto_do_pedido(pedido)
@@ -182,7 +218,8 @@ def instruir(pedido: dict, complementacao: dict | None = None, agente: Agent | N
 
     inicio = time.perf_counter()
     try:
-        resposta = agente.run(texto, **identificadores)
+        resposta = agente.run(texto, session_id=pedido["numero"],
+                              user_id=user_id or pedido["matricula"])
     except Exception as erro:                       # falha antes de haver resposta
         resultado.motivos = [f"exceção na execução: {type(erro).__name__}: {str(erro)[:200]}"]
         resultado.medidas = {"segundos": round(time.perf_counter() - inicio, 1)}

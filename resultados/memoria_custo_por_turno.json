@@ -1,0 +1,426 @@
+[
+  {
+    "configuracao": "A",
+    "rotulo": "sem memória",
+    "memoria": "nenhuma",
+    "user_id_na_complementacao": "matrícula do pedido",
+    "casos": [
+      {
+        "pedido": "DIA-2026-0111",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "206689",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2866,
+          "entrada_por_chamada": [
+            2866,
+            2969
+          ],
+          "entrada_total": 5835,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 617,
+          "chamadas": 2,
+          "custo_usd": 0.0019074,
+          "segundos": 8.7,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "recusada",
+          "recomendacao": "diligencia",
+          "matricula": "",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2765,
+          "entrada_por_chamada": [
+            2765,
+            2837,
+            2914
+          ],
+          "entrada_total": 8516,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 618,
+          "chamadas": 3,
+          "custo_usd": 0.0024448,
+          "segundos": 9.4,
+          "motivos": [
+            "consultar_servidor consultou a matrícula , que não consta do pedido nem da complementação",
+            "consultar_servidor usou o nome '', diferente do nome do pedido",
+            "calcular_diarias usou data_pedido='', mas o pedido e a complementação informam '2026-10-09'",
+            "calcular_diarias usou data_partida='', mas o pedido e a complementação informam '2026-11-17'",
+            "calcular_diarias usou a UF , mas o pedido informa MT",
+            "calcular_diarias foi chamada sem um cadastro conferido",
+            "a matrícula  não consta do pedido nem da complementação",
+            "a verificação dados_completos diz nao_atende, mas o pedido traz a data de retorno"
+          ]
+        },
+        "aplicada_ao_pedido_certo": false
+      },
+      {
+        "pedido": "DIA-2026-0112",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "207481",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2866,
+          "entrada_por_chamada": [
+            2866,
+            2963
+          ],
+          "entrada_total": 5829,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 559,
+          "chamadas": 2,
+          "custo_usd": 0.0018366,
+          "segundos": 6.6,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "recusada",
+          "recomendacao": "diligencia",
+          "matricula": "207418",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2768,
+          "entrada_por_chamada": [
+            2768,
+            2857
+          ],
+          "entrada_total": 5625,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 596,
+          "chamadas": 2,
+          "custo_usd": 0.0018401999999999997,
+          "segundos": 5.9,
+          "motivos": [
+            "consultar_servidor usou o nome '*', diferente do nome do pedido"
+          ]
+        },
+        "aplicada_ao_pedido_certo": false
+      }
+    ],
+    "banco": {
+      "tabelas": {},
+      "sessoes": [],
+      "memorias": []
+    }
+  },
+  {
+    "configuracao": "B",
+    "rotulo": "histórico da sessão",
+    "memoria": "historico",
+    "user_id_na_complementacao": "matrícula do pedido",
+    "casos": [
+      {
+        "pedido": "DIA-2026-0111",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "206689",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2866,
+          "entrada_por_chamada": [
+            2866,
+            2969
+          ],
+          "entrada_total": 5835,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 639,
+          "chamadas": 2,
+          "custo_usd": 0.0019338,
+          "segundos": 7.7,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "entregue",
+          "recomendacao": "apto_para_autorizacao",
+          "matricula": "206689",
+          "quantidade": 3.5,
+          "valor": 980.0,
+          "entrada_1a_chamada": 3628,
+          "entrada_por_chamada": [
+            3628,
+            3731,
+            3928,
+            4109,
+            4196
+          ],
+          "entrada_total": 19592,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 950,
+          "chamadas": 5,
+          "custo_usd": 0.005058399999999999,
+          "segundos": 11.8,
+          "motivos": []
+        },
+        "aplicada_ao_pedido_certo": true
+      },
+      {
+        "pedido": "DIA-2026-0112",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "207481",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2866,
+          "entrada_por_chamada": [
+            2866,
+            2963
+          ],
+          "entrada_total": 5829,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 566,
+          "chamadas": 2,
+          "custo_usd": 0.0018449999999999999,
+          "segundos": 6.2,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "entregue",
+          "recomendacao": "apto_para_autorizacao",
+          "matricula": "207418",
+          "quantidade": 3.5,
+          "valor": 770.0,
+          "entrada_1a_chamada": 3554,
+          "entrada_por_chamada": [
+            3554,
+            3656,
+            3853,
+            4034,
+            4119
+          ],
+          "entrada_total": 19216,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 869,
+          "chamadas": 5,
+          "custo_usd": 0.004886,
+          "segundos": 11.5,
+          "motivos": []
+        },
+        "aplicada_ao_pedido_certo": true
+      }
+    ],
+    "banco": {
+      "tabelas": {
+        "agno_runs": 4,
+        "agno_schema_versions": 2,
+        "agno_sessions": 2
+      },
+      "sessoes": [
+        {
+          "session_id": "DIA-2026-0111",
+          "user_id": "206689",
+          "execucoes": 2
+        },
+        {
+          "session_id": "DIA-2026-0112",
+          "user_id": "207481",
+          "execucoes": 2
+        }
+      ],
+      "memorias": []
+    }
+  },
+  {
+    "configuracao": "C",
+    "rotulo": "histórico + memórias do usuário",
+    "memoria": "historico_e_usuario",
+    "user_id_na_complementacao": "matrícula do pedido",
+    "casos": [
+      {
+        "pedido": "DIA-2026-0111",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "206689",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2891,
+          "entrada_por_chamada": [
+            2891,
+            2994
+          ],
+          "entrada_total": 7125,
+          "entrada_fora_das_chamadas": 1240,
+          "saida_total": 750,
+          "chamadas": 2,
+          "custo_usd": 0.002325,
+          "segundos": 7.2,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "entregue",
+          "recomendacao": "apto_para_autorizacao",
+          "matricula": "206689",
+          "quantidade": 3.5,
+          "valor": 980.0,
+          "entrada_1a_chamada": 3787,
+          "entrada_por_chamada": [
+            3787,
+            3890,
+            4087,
+            4268,
+            4355
+          ],
+          "entrada_total": 21685,
+          "entrada_fora_das_chamadas": 1298,
+          "saida_total": 961,
+          "chamadas": 5,
+          "custo_usd": 0.0054902,
+          "segundos": 11.1,
+          "motivos": []
+        },
+        "aplicada_ao_pedido_certo": true
+      },
+      {
+        "pedido": "DIA-2026-0112",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "207481",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2891,
+          "entrada_por_chamada": [
+            2891,
+            2988
+          ],
+          "entrada_total": 7103,
+          "entrada_fora_das_chamadas": 1224,
+          "saida_total": 569,
+          "chamadas": 2,
+          "custo_usd": 0.0021034,
+          "segundos": 5.9,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "entregue",
+          "recomendacao": "apto_para_autorizacao",
+          "matricula": "207418",
+          "quantidade": 3.5,
+          "valor": 770.0,
+          "entrada_1a_chamada": 3662,
+          "entrada_por_chamada": [
+            3662,
+            3764,
+            3961,
+            4142,
+            4227
+          ],
+          "entrada_total": 21043,
+          "entrada_fora_das_chamadas": 1287,
+          "saida_total": 925,
+          "chamadas": 5,
+          "custo_usd": 0.0053186,
+          "segundos": 10.3,
+          "motivos": []
+        },
+        "aplicada_ao_pedido_certo": true
+      }
+    ],
+    "banco": {
+      "tabelas": {
+        "agno_memories": 2,
+        "agno_runs": 4,
+        "agno_schema_versions": 3,
+        "agno_sessions": 2
+      },
+      "sessoes": [
+        {
+          "session_id": "DIA-2026-0111",
+          "user_id": "206689",
+          "execucoes": 2
+        },
+        {
+          "session_id": "DIA-2026-0112",
+          "user_id": "207481",
+          "execucoes": 2
+        }
+      ],
+      "memorias": [
+        {
+          "memory_id": "d9b878e9-94d5-4e00-82eb-225563ef3499",
+          "user_id": "206689",
+          "memoria": "Beatriz Moraes Cunha (matrícula 206689) tem o pedido de diárias DIA-2026-0111, cuja complementação foi recebida em 09/10/2026, em instrução para viagem a Colniza-MT, com partida em 17/11/2026 e retorno previsto para 20/11/2026, usando veículo oficial, para operação conjunta de fiscalização com a polícia ambiental."
+        },
+        {
+          "memory_id": "62f276dc-7e63-4308-9e05-ff37105f7a23",
+          "user_id": "207481",
+          "memoria": "Carla Regina Souza, matrícula correta 207418, tem um pedido de diárias DIA-2026-0112 para Alta Floresta-MT, de 24 a 27 de novembro de 2026, com transporte em veículo oficial, para apoio técnico ao inventário de fauna de parque estadual. A complementação, recebida em 9 de outubro de 2026, corrigiu a matrícula anteriormente informada por erro de digitação."
+        }
+      ]
+    }
+  },
+  {
+    "configuracao": "D",
+    "rotulo": "B com user_id da matrícula corrigida",
+    "memoria": "historico",
+    "user_id_na_complementacao": "207418",
+    "casos": [
+      {
+        "pedido": "DIA-2026-0112",
+        "turno_pedido": {
+          "situacao": "entregue",
+          "recomendacao": "diligencia",
+          "matricula": "207481",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2866,
+          "entrada_por_chamada": [
+            2866,
+            2963
+          ],
+          "entrada_total": 5829,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 598,
+          "chamadas": 2,
+          "custo_usd": 0.0018834,
+          "segundos": 6.8,
+          "motivos": []
+        },
+        "turno_complementacao": {
+          "situacao": "recusada",
+          "recomendacao": "diligencia",
+          "matricula": "207418",
+          "quantidade": null,
+          "valor": null,
+          "entrada_1a_chamada": 2768,
+          "entrada_por_chamada": [
+            2768,
+            2857
+          ],
+          "entrada_total": 5625,
+          "entrada_fora_das_chamadas": 0,
+          "saida_total": 628,
+          "chamadas": 2,
+          "custo_usd": 0.0018785999999999998,
+          "segundos": 6.8,
+          "motivos": [
+            "consultar_servidor usou o nome '*', diferente do nome do pedido"
+          ]
+        },
+        "aplicada_ao_pedido_certo": false
+      }
+    ],
+    "banco": {
+      "tabelas": {
+        "agno_runs": 2,
+        "agno_schema_versions": 2,
+        "agno_sessions": 1
+      },
+      "sessoes": [
+        {
+          "session_id": "DIA-2026-0112",
+          "user_id": "207481",
+          "execucoes": 2
+        }
+      ],
+      "memorias": []
+    }
+  }
+]

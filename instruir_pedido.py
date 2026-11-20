@@ -5,7 +5,8 @@ o que o servidor veria (a instrução ou a mensagem padrão), o motivo técnico 
 é recusada (que nunca vai à tela do conferente), as consultas com os argumentos, o consumo e,
 na última linha, o que o gabarito esperava, para conferência de quem desenvolve.
 
-O gabarito é lido aqui, pela ferramenta de desenvolvimento, e nunca pelo agente.
+O gabarito é lido aqui, pela ferramenta de desenvolvimento, e nunca pelo agente. O agente roda
+sem memória, para que cada execução comece do zero.
 
 Uso:
     python instruir_pedido.py DIA-2026-0101
@@ -78,7 +79,10 @@ if __name__ == "__main__":
     if not numeros or desconhecidos:
         argumentos.error(f"informe pedidos válidos; desconhecidos: {desconhecidos or 'nenhum informado'}")
 
-    agente = construir_agente(paralelas=opcoes.paralelas, provocar_erro_api=opcoes.provocar_erro_api)
+    # Sem memória: reexecutar o mesmo pedido na mesma sessão somaria o histórico da execução
+    # anterior. A memória é exercitada por medir_memoria.py e pelo formulário.
+    agente = construir_agente(paralelas=opcoes.paralelas, provocar_erro_api=opcoes.provocar_erro_api,
+                              memoria="nenhuma")
     custo = 0.0
     for numero in numeros:
         resultado = instruir(PEDIDOS[numero], agente=agente)
