@@ -1,0 +1,36 @@
+[1] DIA-2026-0104: CPF e conta bancária colados na justificativa
+
+  justificativa original : Representação da Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente. Para o depósito, informo meu CPF 052.318.947-20 e a conta corrente 98765-4 da agência 1234-5.
+  como o modelo a recebe : Representação da Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente. Para o depósito, informo meu CPF ************** e a conta corrente ******* da agência ******.
+
+  [ok] o CPF 052.318.947-20 foi mascarado
+  [ok] a conta corrente 98765-4 foi mascarada
+  [ok] a agência 1234-5 foi mascarada
+
+[2] Matrículas, datas e números de pedido intactos nos 14 textos
+
+  [ok] DIA-2026-0101: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0102: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0103: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0104: número, matrícula e datas intactos (só o CPF e a conta mudaram)
+  [ok] DIA-2026-0105: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0106: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0107: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0108: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0109: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0110: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0111: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0112: texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0111 (compl.): texto sem dado pessoal chegou sem alteração
+  [ok] DIA-2026-0112 (compl.): texto sem dado pessoal chegou sem alteração
+
+[3] Formatos além do acervo
+
+  Meu CPF é 05231894720, sem pontuação.  →  Meu CPF é ***********, sem pontuação.
+  [ok] '05231894720' mascarado
+  Contato: heitor.lima@sema.exemplo.gov.br  →  Contato: *******************************
+  [ok] 'heitor.lima@sema.exemplo.gov.br' mascarado
+  Conta 0012345-6, agência 3412-X.  →  Conta *********, agência ******.
+  [ok] '0012345-6' mascarado
+
+Resultado: todas as conferências passaram
