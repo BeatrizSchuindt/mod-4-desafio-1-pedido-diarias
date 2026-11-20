@@ -221,3 +221,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Desafio 01: o banco do agente guarda dados pessoais (LGPD) ---
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
