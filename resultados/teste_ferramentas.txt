@@ -1,0 +1,77 @@
+Ferramentas, na ordem de consulta, e a primeira linha da docstring de cada uma:
+  consultar_servidor           Consulta o cadastro funcional e confere se o nome do pedido é o do titular da matrícula.
+  calcular_diarias             Calcula a quantidade e o valor das diárias e a antecedência do pedido.
+  consultar_historico_diarias  Consulta as prestações de contas pendentes e as diárias já concedidas no mês da partida.
+  consultar_saldo_diarias      Consulta o saldo da dotação de diárias de uma unidade e o compara com o valor pedido.
+
+[1] Casos pedidos no enunciado
+
+DIA-2026-0112: matrícula de outro servidor, por troca de dois algarismos
+  consultar_servidor('207481', 'Carla Regina Souza')
+    → A matrícula 207481 pertence a outro servidor: o nome informado no pedido (Carla Regina Souza) não confere com o cadastro funcional. Critério cadastro: NÃO ATENDE. Pedido em diligência, sem análise de mérito (art. 9º).
+
+  [ok] 207481 não é da Carla: cadastro não atendido
+
+  [ok] o nome do titular real (terceiro) não é revelado
+
+  consultar_servidor('207418', 'Carla Regina Souza')
+    → Servidor localizado: matrícula 207418, nome confere com o cadastro. Cargo: Técnica Ambiental. Grupo da diária: C. Unidade de lotação: CUC (Coordenadoria de Unidades de Conservação). Sede: Cuiabá. Critério cadastro: ATENDE.
+
+  [ok] com a matrícula corrigida (207418), cadastro atendido e grupo C
+
+DIA-2026-0108: prestação de contas vencida
+  consultar_historico_diarias('203648', '2026-11-03', 3.5)
+    → Histórico da matrícula 203648 na data da análise (2026-10-09). Prestação de contas do pedido DIA-2026-0023 (retorno em 2026-09-18): pendente, o prazo venceu em 2026-09-25: VENCIDA. Prazo de 5 dias úteis após o retorno, sem considerar feriados (art. 7º). Critério prestacao_contas: NÃO ATENDE. Diárias no mês da partida (2026-11): 0.0 já concedidas (nenhuma) + 3.5 pedidas = 3.5; limite de 10 por mês (art. 6º). Critério limite_mensal: ATENDE.
+
+  [ok] retorno em 2026-09-18 + 5 dias úteis = 2026-09-25, antes de 2026-10-09: vencida
+
+DIA-2026-0102 (contraste): prestação pendente, mas ainda no prazo
+  consultar_historico_diarias('205882', '2026-11-09', 3.5)
+    → Histórico da matrícula 205882 na data da análise (2026-10-09). Prestação de contas do pedido DIA-2026-0041 (retorno em 2026-10-06): pendente, ainda no prazo, que vai até 2026-10-13. Prazo de 5 dias úteis após o retorno, sem considerar feriados (art. 7º). Critério prestacao_contas: ATENDE. Diárias no mês da partida (2026-11): 0.0 já concedidas (nenhuma) + 3.5 pedidas = 3.5; limite de 10 por mês (art. 6º). Critério limite_mensal: ATENDE.
+
+  [ok] retorno em 2026-10-06 + 5 dias úteis = 2026-10-13, depois de 2026-10-09: no prazo
+
+DIA-2026-0103: ida e volta no mesmo dia
+  calcular_diarias('B', 'MT', '2026-10-07', '2026-11-05', '2026-11-05')
+    → Quantidade: 0.5 diárias (sem pernoite: meia diária, art. 4º). Valor unitário: R$ 280.00 (grupo B, interior de MT, Anexo I). Valor total: R$ 140.00. Critério dados_completos: ATENDE. Antecedência: 29 dias corridos entre o pedido (2026-10-07) e a partida (2026-11-05); mínimo de 10 dias (art. 5º). Critério antecedencia: ATENDE.
+
+  [ok] sem pernoite: 0,5 diária × R$ 280,00 = R$ 140,00
+
+DIA-2026-0110: viagem a outra UF com saldo insuficiente na unidade
+  calcular_diarias('B', 'RO', '2026-10-02', '2026-11-10', '2026-11-14')
+    → Quantidade: 4.5 diárias (4 pernoite(s) + meia diária no dia do retorno, art. 4º). Valor unitário: R$ 400.00 (grupo B, outra UF, Anexo I). Valor total: R$ 1800.00. Critério dados_completos: ATENDE. Antecedência: 39 dias corridos entre o pedido (2026-10-02) e a partida (2026-11-10); mínimo de 10 dias (art. 5º). Critério antecedencia: ATENDE.
+
+  [ok] 4,5 diárias × R$ 400,00 (outra UF) = R$ 1.800,00
+
+  consultar_saldo_diarias('CRH', 1800.0)
+    → Saldo da unidade CRH: R$ 640.00. Saldo INSUFICIENTE para R$ 1800.00 (art. 8º). Critério saldo_orcamentario: NÃO ATENDE.
+
+  [ok] saldo da CRH (R$ 640,00) menor que R$ 1.800,00
+
+[2] Ferramentas encadeadas, sem modelo, contra o gabarito.json
+
+  caso                   recomendação              qtd    valor  não atendidos                resultado
+  DIA-2026-0101          apto_para_autorizacao     3.5   980.00  -                            ok
+  DIA-2026-0102          apto_para_autorizacao     3.5   770.00  -                            ok
+  DIA-2026-0103          apto_para_autorizacao     0.5   140.00  -                            ok
+  DIA-2026-0104          apto_para_autorizacao     2.5  1500.00  -                            ok
+  DIA-2026-0105          nao_recomendado           2.5   700.00  antecedencia                 ok
+  DIA-2026-0106          apto_para_autorizacao     4.5  1260.00  -                            ok
+  DIA-2026-0107          nao_recomendado           2.5   550.00  antecedencia                 ok
+  DIA-2026-0108          nao_recomendado           3.5   980.00  prestacao_contas             ok
+  DIA-2026-0109          nao_recomendado           3.5   980.00  limite_mensal                ok
+  DIA-2026-0110          nao_recomendado           4.5  1800.00  saldo_orcamentario           ok
+  DIA-2026-0111          diligencia                  -        -  dados_completos              ok
+  DIA-2026-0112          diligencia                  -        -  cadastro                     ok
+  DIA-2026-0111 (compl.) apto_para_autorizacao     3.5   980.00  -                            ok
+  DIA-2026-0112 (compl.) apto_para_autorizacao     3.5   770.00  -                            ok
+
+  14 de 14 casos iguais ao gabarito
+
+[3] Minimização: o que as ferramentas devolveram ao longo de todo o teste
+
+  [ok] nenhuma das 58 saídas contém CPF
+
+  [ok] nenhuma das 58 saídas contém e-mail
+
+Resultado: todas as conferências passaram
