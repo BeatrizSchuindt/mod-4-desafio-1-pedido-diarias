@@ -1,0 +1,36 @@
+# Configuração do Streamlit para o formulário de conferência (app_conferencia.py).
+# Lida quando o streamlit é executado da raiz do repositório.
+
+[browser]
+# O Streamlit envia estatísticas de uso por padrão. Como a telemetria do Agno (Aula 06,
+# Seção 5.4), a decisão é do órgão: desligada.
+gatherUsageStats = false
+
+[client]
+# Esconde o menu de desenvolvedor do conferente.
+toolbarMode = "minimal"
+
+[theme]
+# Identidade da SEMA-MT: azul da marca (#1D3281) e azul do texto (#252B77).
+base = "light"
+primaryColor = "#1D3281"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EEF1F8"
+textColor = "#1B1F3B"
+linkColor = "#1D3281"
+borderColor = "#D5DBEA"
+blueColor = "#1D3281"
+greenColor = "#0B7A3E"
+orangeColor = "#B54708"
+redColor = "#B42318"
+yellowColor = "#B88A00"
+baseRadius = "0.6rem"
+showSidebarBorder = false
+
+[theme.sidebar]
+# Menu lateral no azul da marca, com o amarelo da bandeira de Mato Grosso no item ativo.
+backgroundColor = "#1D3281"
+secondaryBackgroundColor = "#2A3F94"
+textColor = "#FFFFFF"
+primaryColor = "#F2B705"
+borderColor = "#3A4FA3"

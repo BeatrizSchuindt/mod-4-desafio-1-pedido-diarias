@@ -16,6 +16,7 @@ nenhuma matrícula, data ou número de pedido muda; o testar_filtro.py confere a
 O filtro reconhece formatos, e não significado: um dado pessoal escrito por extenso passa.
 """
 from agno.guardrails import PIIDetectionGuardrail
+from agno.run.agent import RunInput
 
 PADROES = {
     "CPF": r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b",
@@ -32,3 +33,13 @@ def filtro_dados_pessoais() -> PIIDetectionGuardrail:
         enable_phone_check=False,
         custom_patterns=PADROES,
     )
+
+
+def mascarar(texto: str) -> str:
+    """Aplica o mesmo filtro a um texto qualquer, como o formulário faz antes de exibir o pedido.
+
+    A tela também é um lugar de exposição: o servidor vê a justificativa como o modelo a viu.
+    """
+    entrada = RunInput(input_content=texto)
+    filtro_dados_pessoais().check(entrada)
+    return entrada.input_content

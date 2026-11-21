@@ -30,6 +30,7 @@ warnings.filterwarnings("ignore")
 from agno.agent import Agent
 from agno.db.sqlite import SqliteDb
 from agno.models.openai import OpenAIChat
+from agno.run.agent import RunErrorEvent, RunOutput, ToolCallStartedEvent
 from agno.run.base import RunStatus
 from dotenv import load_dotenv
 
@@ -202,8 +203,34 @@ def _medidas(resposta, inicio: float) -> dict:
             "custo_usd": entrada / 1e6 * USD_ENTRADA + saida / 1e6 * USD_SAIDA}
 
 
+def _executar(agente: Agent, texto: str, ao_chamar_ferramenta, **identificadores):
+    """Executa o agente; com `ao_chamar_ferramenta`, em modo de eventos (Aula 06, Seção 6.3).
+
+    Com output_schema, a resposta não pode ser exibida aos poucos, porque o JSON só valida no
+    último token. O que se transmite à tela é a ação em curso: cada ferramenta é anunciada no
+    momento em que começa. `yield_run_output=True` entrega, no fim, o mesmo objeto de resposta
+    da execução sem eventos, e o resto do fluxo não muda.
+    """
+    if ao_chamar_ferramenta is None:
+        return agente.run(texto, **identificadores)
+    resposta = erro = None
+    for evento in agente.run(texto, stream=True, stream_events=True, yield_run_output=True,
+                             **identificadores):
+        if isinstance(evento, RunOutput):
+            resposta = evento
+        elif isinstance(evento, ToolCallStartedEvent) and evento.tool:
+            ao_chamar_ferramenta(evento.tool.tool_name)
+        elif isinstance(evento, RunErrorEvent):
+            erro = evento
+    if resposta is None:
+        # Em modo de eventos, um erro da API chega como RunErrorEvent, sem objeto de resposta.
+        # Ele vira uma resposta com status de erro, e o fluxo segue igual ao da execução comum.
+        resposta = RunOutput(status=RunStatus.error, content=getattr(erro, "content", None))
+    return resposta
+
+
 def instruir(pedido: dict, complementacao: dict | None = None, agente: Agent | None = None,
-             user_id: str | None = None) -> Resultado:
+             user_id: str | None = None, ao_chamar_ferramenta=None) -> Resultado:
     """Instrui um pedido (ou a sua complementação) e devolve o resultado já conferido.
 
     Cada pedido é uma sessão: `session_id` é o número do pedido. O `user_id` é a matrícula
@@ -211,6 +238,9 @@ def instruir(pedido: dict, complementacao: dict | None = None, agente: Agent | N
     matrícula: a sessão foi aberta com esse identificador, e o Agno só a encontra com ele
     (ver medir_memoria.py, configuração D). O parâmetro `user_id` existe para provocar essa
     falha; o sistema não o usa.
+
+    `ao_chamar_ferramenta` recebe o nome de cada ferramenta quando ela começa; o formulário
+    usa para mostrar o progresso.
     """
     agente = agente or construir_agente()
     texto = texto_da_complementacao(complementacao) if complementacao else texto_do_pedido(pedido)
@@ -218,8 +248,8 @@ def instruir(pedido: dict, complementacao: dict | None = None, agente: Agent | N
 
     inicio = time.perf_counter()
     try:
-        resposta = agente.run(texto, session_id=pedido["numero"],
-                              user_id=user_id or pedido["matricula"])
+        resposta = _executar(agente, texto, ao_chamar_ferramenta, session_id=pedido["numero"],
+                             user_id=user_id or pedido["matricula"])
     except Exception as erro:                       # falha antes de haver resposta
         resultado.motivos = [f"exceção na execução: {type(erro).__name__}: {str(erro)[:200]}"]
         resultado.medidas = {"segundos": round(time.perf_counter() - inicio, 1)}

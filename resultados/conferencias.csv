@@ -1,0 +1,6 @@
+id,numero_pedido,turno,situacao_instrucao,sugestao_agente,encaminhamento,divergiu,motivo,minuta_editada,chamadas,custo_usd,segundos,registrado_em
+1,DIA-2026-0101,pedido,entregue,apto_para_autorizacao,apto_para_autorizacao,0,,1,5,0.004254,10.6,2026-11-21T17:17:28
+2,DIA-2026-0105,pedido,entregue,nao_recomendado,diligencia,1,Pedir comprovação da data da reunião,0,5,0.0043156,10.5,2026-11-21T17:19:17
+3,DIA-2026-0111,pedido,entregue,diligencia,diligencia,0,,0,2,0.0019062,6.3,2026-11-21T17:28:28
+4,DIA-2026-0112,pedido,entregue,diligencia,diligencia,0,,0,2,0.0018558,6.5,2026-11-21T17:31:51
+5,DIA-2026-0112,complementacao,entregue,apto_para_autorizacao,apto_para_autorizacao,0,,0,5,0.0049838,11.4,2026-11-21T17:32:25

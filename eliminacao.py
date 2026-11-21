@@ -2,8 +2,11 @@
 
 O banco do agente guarda o que passou pelas conversas: o pedido (já filtrado), as consultas e
 as instruções, nas tabelas de sessões e de execuções, e, quando as memórias do usuário estão
-ligadas, os fatos que o Agno extraiu sobre a pessoa (Aula 07, Seção 2). A eliminação tem três
-etapas, executadas sempre, porque o que o agente guarda é probabilístico (Aula 07, Seção 6):
+ligadas, os fatos que o Agno extraiu sobre a pessoa (Aula 07, Seção 2). Antes de tudo, a
+rotina confere no cadastro funcional que a matrícula e o nome são do mesmo servidor: sem isso,
+a matrícula de outra pessoa, digitada com qualquer nome, apagaria os dados dela. A eliminação
+tem então três etapas, executadas sempre, porque o que o agente guarda é probabilístico
+(Aula 07, Seção 6):
 
 1. apagar as sessões do titular, encontradas pelo user_id (a matrícula); a exclusão leva junto
    as execuções dessas sessões;
@@ -20,22 +23,31 @@ Alcance: só o banco do agente, que é cópia de trabalho. O processo de diária
 despesa pública, sujeito à transparência e à guarda das normas de prestação de contas, e não é
 tocado por esta rotina.
 
+Prazo de retenção: a sessão de um pedido fica no banco até 30 dias depois do último registro
+do conferente naquele pedido (ver elegiveis_ao_expurgo); expurgar() apaga as vencidas.
+
 Uso:
     python eliminacao.py 206689 "Beatriz Moraes Cunha"
     python eliminacao.py 207418 "Carla Regina Souza" --apagar-encontradas
     python eliminacao.py 207418 "Carla Regina Souza" --banco bancos/eliminacao.db
+    python eliminacao.py --expurgar            # apaga as sessões com prazo de retenção vencido
 """
 import argparse
 import json
 import re
 import sqlite3
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
+
+from datetime import datetime, timedelta
 
 from agno.db.base import SessionType
 from agno.db.sqlite import SqliteDb
 
 from agente import BANCO_PADRAO
+from conferencias import BANCO_CONFERENCIAS, ultimo_registro_por_pedido
+from dados import SERVIDORES
 
 
 # ------------------------------------------------------------------ inspeção do banco
@@ -119,9 +131,87 @@ class Relatorio:
         return not self.depois
 
 
+def _nome(texto: str) -> str:
+    """Nome para comparação: sem diferença de maiúsculas, acentos ou espaços extras."""
+    sem_acento = "".join(c for c in unicodedata.normalize("NFKD", str(texto))
+                         if not unicodedata.combining(c))
+    return " ".join(sem_acento.split()).casefold()
+
+
+def conferir_titular(matricula: str, nome: str) -> str:
+    """A matrícula e o nome precisam ser do mesmo servidor no cadastro funcional.
+
+    Sem esta conferência, quem digitasse a matrícula de outra pessoa com qualquer nome apagaria
+    os dados dela: as etapas 1 e 2 procuram só pela matrícula. Levanta ValueError se não conferir
+    e devolve o nome como está no cadastro, que é o usado na varredura: digitado sem acento, o
+    nome não acharia o texto gravado com acento.
+    """
+    servidor = SERVIDORES.get(str(matricula).strip())
+    if servidor is None:
+        raise ValueError(f"a matrícula {matricula} não consta do cadastro funcional")
+    if _nome(servidor["nome"]) != _nome(nome):
+        # O nome do cadastro não é revelado: daria para descobrir o nome de qualquer servidor
+        # digitando matrículas.
+        raise ValueError(f"o nome informado não corresponde ao titular da matrícula {matricula} "
+                         "no cadastro funcional. Confira a grafia do nome completo; maiúsculas "
+                         "e acentos não fazem diferença")
+    return servidor["nome"]
+
+
+def _achados_por_conteudo(db: SqliteDb, termos: list[str], excluir_sessoes=(),
+                          excluir_memorias=()) -> list[dict]:
+    """Sessões e memórias que citam o titular, gravadas sob qualquer user_id (a varredura)."""
+    achados = []
+    for sessao in db.get_sessions(session_type=SessionType.AGENT) or []:
+        if sessao.session_id not in excluir_sessoes and _contem(
+                json.dumps(sessao.to_dict(), default=str, ensure_ascii=False), termos):
+            achados.append({"tipo": "sessão", "id": sessao.session_id, "user_id": sessao.user_id})
+    for memoria in db.get_user_memories() or []:
+        if memoria.memory_id not in excluir_memorias and _contem(str(memoria.memory), termos):
+            achados.append({"tipo": "memória", "id": memoria.memory_id, "user_id": memoria.user_id})
+    return achados
+
+
+@dataclass
+class Localizacao:
+    """O que o banco do agente guarda sobre o titular, antes de qualquer exclusão."""
+    matricula: str
+    nome: str
+    sessoes: list[dict] = field(default_factory=list)       # pelo user_id
+    memorias: list[dict] = field(default_factory=list)      # pelo user_id
+    por_conteudo: list[dict] = field(default_factory=list)  # sob outro user_id
+    ocorrencias: dict = field(default_factory=dict)         # tabela por tabela
+
+    @property
+    def vazio(self) -> bool:
+        return not (self.sessoes or self.memorias or self.por_conteudo or self.ocorrencias)
+
+
+def localizar_titular(matricula: str, nome: str, banco: Path = BANCO_PADRAO) -> Localizacao:
+    """Lista, sem apagar nada, o que seria eliminado. Confere o titular no cadastro antes."""
+    nome = conferir_titular(matricula, nome)
+    local = Localizacao(matricula=matricula, nome=nome)
+    if not Path(banco).exists():
+        return local
+    db = SqliteDb(db_file=str(banco))
+    local.sessoes = [{"tipo": "sessão", "id": s.session_id, "user_id": s.user_id,
+                      "execucoes": len(s.runs or [])}
+                     for s in db.get_sessions(session_type=SessionType.AGENT, user_id=matricula) or []]
+    local.memorias = [{"tipo": "memória", "id": m.memory_id, "user_id": m.user_id}
+                      for m in db.get_user_memories(user_id=matricula) or []]
+    local.por_conteudo = _achados_por_conteudo(
+        db, [matricula, nome], {s["id"] for s in local.sessoes}, {m["id"] for m in local.memorias})
+    local.ocorrencias = ocorrencias(banco, [matricula, nome])
+    return local
+
+
 def eliminar_titular(matricula: str, nome: str, banco: Path = BANCO_PADRAO,
                      apagar_encontradas: bool = False) -> Relatorio:
-    """Elimina do banco do agente os dados do titular e confere o que restou."""
+    """Elimina do banco do agente os dados do titular e confere o que restou.
+
+    Confere antes, no cadastro funcional, que a matrícula e o nome são do mesmo servidor.
+    """
+    nome = conferir_titular(matricula, nome)
     relatorio = Relatorio(matricula=matricula, nome=nome)
     termos = [matricula, nome]
     relatorio.antes = ocorrencias(banco, termos)
@@ -144,14 +234,7 @@ def eliminar_titular(matricula: str, nome: str, banco: Path = BANCO_PADRAO,
     # 3. Conferência tabela por tabela, pela matrícula e pelo nome.
     relatorio.restos_apos_user_id = ocorrencias(banco, termos)
     if relatorio.restos_apos_user_id:
-        for sessao in db.get_sessions(session_type=SessionType.AGENT) or []:
-            if _contem(json.dumps(sessao.to_dict(), default=str, ensure_ascii=False), termos):
-                relatorio.encontradas_na_varredura.append(
-                    {"tipo": "sessão", "id": sessao.session_id, "user_id": sessao.user_id})
-        for memoria in db.get_user_memories() or []:
-            if _contem(str(memoria.memory), termos):
-                relatorio.encontradas_na_varredura.append(
-                    {"tipo": "memória", "id": memoria.memory_id, "user_id": memoria.user_id})
+        relatorio.encontradas_na_varredura = _achados_por_conteudo(db, termos)
         if apagar_encontradas and relatorio.encontradas_na_varredura:
             sessoes_achadas = [e["id"] for e in relatorio.encontradas_na_varredura
                                if e["tipo"] == "sessão"]
@@ -165,6 +248,49 @@ def eliminar_titular(matricula: str, nome: str, banco: Path = BANCO_PADRAO,
 
     relatorio.depois = ocorrencias(banco, termos)
     return relatorio
+
+
+# ------------------------------------------------------------------ prazo de retenção
+
+PRAZO_RETENCAO_DIAS = 30
+
+
+def elegiveis_ao_expurgo(prazo_dias: int = PRAZO_RETENCAO_DIAS, banco: Path = BANCO_PADRAO,
+                         banco_conferencias: Path = BANCO_CONFERENCIAS,
+                         agora: datetime | None = None) -> list[dict]:
+    """Sessões que já passaram do prazo de retenção.
+
+    Regra: a sessão de um pedido é guardada até 30 dias depois do último registro do conferente
+    naquele pedido. Na diligência, o registro feito quando a complementação chega reinicia o
+    prazo. Sem nenhum registro (pedido abandonado), conta a última execução do agente.
+    """
+    if not Path(banco).exists():
+        return []
+    agora = agora or datetime.now()
+    ultimo = ultimo_registro_por_pedido(banco_conferencias)
+    elegiveis = []
+    for sessao in SqliteDb(db_file=str(banco)).get_sessions(session_type=SessionType.AGENT) or []:
+        if sessao.session_id in ultimo:
+            referencia, origem = ultimo[sessao.session_id], "último registro do conferente"
+        else:
+            referencia = datetime.fromtimestamp(sessao.updated_at or sessao.created_at or 0)
+            origem = "última execução (sem registro do conferente)"
+        if agora - referencia > timedelta(days=prazo_dias):
+            elegiveis.append({"session_id": sessao.session_id, "user_id": sessao.user_id,
+                              "referencia": referencia.isoformat(timespec="seconds"),
+                              "origem": origem})
+    return elegiveis
+
+
+def expurgar(prazo_dias: int = PRAZO_RETENCAO_DIAS, banco: Path = BANCO_PADRAO,
+             banco_conferencias: Path = BANCO_CONFERENCIAS,
+             agora: datetime | None = None) -> list[dict]:
+    """Apaga as sessões vencidas (e as execuções delas) e devolve o que foi apagado."""
+    elegiveis = elegiveis_ao_expurgo(prazo_dias, banco, banco_conferencias, agora)
+    if elegiveis:
+        SqliteDb(db_file=str(banco)).delete_sessions(
+            session_ids=[e["session_id"] for e in elegiveis])
+    return elegiveis
 
 
 def mostrar(relatorio: Relatorio) -> None:
@@ -183,10 +309,25 @@ def mostrar(relatorio: Relatorio) -> None:
 
 if __name__ == "__main__":
     argumentos = argparse.ArgumentParser(description="Elimina do banco do agente os dados de um servidor.")
-    argumentos.add_argument("matricula")
-    argumentos.add_argument("nome")
+    argumentos.add_argument("matricula", nargs="?")
+    argumentos.add_argument("nome", nargs="?")
     argumentos.add_argument("--banco", type=Path, default=BANCO_PADRAO)
     argumentos.add_argument("--apagar-encontradas", action="store_true",
                             help="apaga também as sessões e memórias achadas pelo conteúdo")
+    argumentos.add_argument("--expurgar", action="store_true",
+                            help=f"apaga as sessões com mais de {PRAZO_RETENCAO_DIAS} dias de retenção")
     opcoes = argumentos.parse_args()
-    mostrar(eliminar_titular(opcoes.matricula, opcoes.nome, opcoes.banco, opcoes.apagar_encontradas))
+    if opcoes.expurgar:
+        apagadas = expurgar(banco=opcoes.banco)
+        print(f"Sessões expurgadas por prazo de retenção: {len(apagadas)}")
+        for sessao in apagadas:
+            print(f"  {sessao['session_id']} (user_id {sessao['user_id']}): {sessao['origem']} em "
+                  f"{sessao['referencia']}")
+    elif opcoes.matricula and opcoes.nome:
+        try:
+            mostrar(eliminar_titular(opcoes.matricula, opcoes.nome, opcoes.banco,
+                                     opcoes.apagar_encontradas))
+        except ValueError as erro:
+            argumentos.exit(1, f"Eliminação recusada: {erro}.\n")
+    else:
+        argumentos.error("informe a matrícula e o nome do titular, ou use --expurgar")

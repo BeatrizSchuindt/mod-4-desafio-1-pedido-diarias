@@ -10,14 +10,18 @@
   sessão DIA-2026-0104: user_id 200941, 1 execução(ões)
   sessão DIA-2026-0111: user_id 206689, 2 execução(ões)
   sessão DIA-2026-0112: user_id 207481, 2 execução(ões)
-  memória (user_id 200941): O usuário compartilhou um pedido de diárias protocolado (DIA-2026-0104) para Heitor Vasconcelos Lima, com destino a Brasília/DF entre 16 e 18 de novembro de 2026, para representação da Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente, com transporte aéreo.
-  memória (user_id 206689): Beatriz Moraes Cunha (matrícula 206689) protocolou o pedido de diárias DIA-2026-0111 para viagem a Colniza-MT, com partida em 17/11/2026 e retorno previsto para 20/11/2026, utilizando veículo oficial, para operação conjunta de fiscalização com a polícia ambiental. A complementação ao pedido em diligência foi recebida em 09/10/2026.
-  memória (user_id 207481): Carla Regina Souza protocolou o pedido de diárias DIA-2026-0112 para viagem a Alta Floresta-MT, de 24 a 27 de novembro de 2026, em veículo oficial, para apoio técnico ao inventário de fauna de parque estadual. Em complementação recebida em 9 de outubro de 2026, informou que houve erro de digitação e que sua matrícula correta é 207418.
+  memória (user_id 200941): Heitor Vasconcelos Lima tem um pedido de diárias DIA-2026-0104 para representar a Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente, em Brasília/DF, de 16 a 18 de novembro de 2026, com transporte aéreo.
+  memória (user_id 206689): Beatriz Moraes Cunha (matrícula 206689) tem um pedido de diárias protocolado sob o número DIA-2026-0111, com complementação recebida em 09/10/2026, para deslocamento a Colniza-MT em 17/11/2026, em veículo oficial, para operação conjunta de fiscalização com a polícia ambiental; o retorno está previsto para 20/11/2026.
+  memória (user_id 207481): Carla Regina Souza, matrícula correta 207418 (corrigida por erro de digitação em complementação recebida em 09/10/2026), tem um pedido de diárias DIA-2026-0112 para Alta Floresta/MT, de 24 a 27 de novembro de 2026, com transporte em veículo oficial, visando apoio técnico ao inventário de fauna de parque estadual da região.
 
 [3] O CPF e a conta do DIA-2026-0104 chegaram ao banco?
   [ok] CPF e dados bancários ausentes do banco 
 
-[4] Eliminação de Beatriz Moraes Cunha (matrícula 206689)
+[4] Matrícula da Beatriz (206689) com o nome da Carla: a eliminação é recusada?
+  [ok] recusada: o nome informado não corresponde ao titular da matrícula 206689 no cadastro funcional
+  [ok] os dados da Beatriz continuam no banco
+
+[5] Eliminação de Beatriz Moraes Cunha (matrícula 206689)
 Titular: Beatriz Moraes Cunha (matrícula 206689)
   antes, aparece em: {'agno_memories': 1, 'agno_sessions': 1, 'agno_runs': 2}
   1. sessões apagadas pelo user_id: ['DIA-2026-0111']
@@ -28,7 +32,7 @@ Titular: Beatriz Moraes Cunha (matrícula 206689)
   [ok] a sessão DIA-2026-0111 foi achada pelo user_id
   [ok] depois da eliminação, nada restou dela no banco
 
-[5] Eliminação de Carla Regina Souza (matrícula 207418)
+[6] Eliminação de Carla Regina Souza (matrícula 207418)
   primeiro, só pelo user_id da titular:
 Titular: Carla Regina Souza (matrícula 207418)
   antes, aparece em: {'agno_memories': 1, 'agno_runs': 2}
@@ -36,7 +40,7 @@ Titular: Carla Regina Souza (matrícula 207418)
   2. memórias apagadas pelo user_id: 0
   3. conferência tabela por tabela: {'agno_memories': 1, 'agno_runs': 2}
      encontrada pelo conteúdo: sessão DIA-2026-0112 (user_id 207481)
-     encontrada pelo conteúdo: memória b21b124d-c7fb-4434-a383-9fcf2e9dd236 (user_id 207481)
+     encontrada pelo conteúdo: memória b9d3c279-3b6f-4285-9c20-0a052672a7cb (user_id 207481)
      NÃO apagadas: confirme com --apagar-encontradas
   depois, aparece em: {'agno_memories': 1, 'agno_runs': 2}
   [ok] a busca pelo user_id 207418 não acha a sessão DIA-2026-0112, gravada sob 207481
@@ -50,19 +54,19 @@ Titular: Carla Regina Souza (matrícula 207418)
   2. memórias apagadas pelo user_id: 0
   3. conferência tabela por tabela: {'agno_memories': 1, 'agno_runs': 2}
      encontrada pelo conteúdo: sessão DIA-2026-0112 (user_id 207481)
-     encontrada pelo conteúdo: memória b21b124d-c7fb-4434-a383-9fcf2e9dd236 (user_id 207481)
+     encontrada pelo conteúdo: memória b9d3c279-3b6f-4285-9c20-0a052672a7cb (user_id 207481)
      apagadas após confirmação
   depois, aparece em: nenhuma tabela — nada restou
   [ok] depois da eliminação confirmada, nada restou dela no banco
   [ok] a matrícula 207481, digitada por engano, também saiu do banco
 
-[6] A testemunha continua intacta?
+[7] A testemunha continua intacta?
   [ok] os dados de Heitor continuam no banco {'agno_memories': 1, 'agno_sessions': 1, 'agno_runs': 1}
   [ok] a sessão DIA-2026-0104 continua no banco
 
-[7] O que restou no banco
+[8] O que restou no banco
   tabelas: {'agno_memories': 1, 'agno_runs': 1, 'agno_schema_versions': 3, 'agno_sessions': 1}
   sessão DIA-2026-0104: user_id 200941, 1 execução(ões)
-  memória (user_id 200941): O usuário compartilhou um pedido de diárias protocolado (DIA-2026-0104) para Heitor Vasconcelos Lima, com destino a Brasília/DF entre 16 e 18 de novembro de 2026, para representação da Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente, com transporte aéreo.
+  memória (user_id 200941): Heitor Vasconcelos Lima tem um pedido de diárias DIA-2026-0104 para representar a Secretaria em reunião técnica do Conselho Nacional do Meio Ambiente, em Brasília/DF, de 16 a 18 de novembro de 2026, com transporte aéreo.
 
 Resultado: todas as conferências passaram

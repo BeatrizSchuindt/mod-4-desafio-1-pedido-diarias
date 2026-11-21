@@ -60,14 +60,23 @@ if __name__ == "__main__":
     vazou = ocorrencias(BANCO, ["052.318.947-20", "98765-4", "1234-5"])
     conferir(not vazou, f"CPF e dados bancários ausentes do banco {vazou or ''}")
 
-    print("\n[4] Eliminação de Beatriz Moraes Cunha (matrícula 206689)")
+    print("\n[4] Matrícula da Beatriz (206689) com o nome da Carla: a eliminação é recusada?")
+    try:
+        eliminar_titular("206689", "Carla Regina Souza", BANCO)
+        conferir(False, "a matrícula de outra pessoa com outro nome deveria ser recusada")
+    except ValueError as erro:
+        conferir(True, f"recusada: {erro}")
+    conferir(any(s["session_id"] == "DIA-2026-0111" for s in sessoes(BANCO)),
+             "os dados da Beatriz continuam no banco")
+
+    print("\n[5] Eliminação de Beatriz Moraes Cunha (matrícula 206689)")
     beatriz = eliminar_titular("206689", "Beatriz Moraes Cunha", BANCO)
     mostrar(beatriz)
     conferir(bool(beatriz.antes), "antes da eliminação, os dados dela estavam no banco")
     conferir("DIA-2026-0111" in beatriz.sessoes_apagadas, "a sessão DIA-2026-0111 foi achada pelo user_id")
     conferir(beatriz.nada_restou, "depois da eliminação, nada restou dela no banco")
 
-    print("\n[5] Eliminação de Carla Regina Souza (matrícula 207418)")
+    print("\n[6] Eliminação de Carla Regina Souza (matrícula 207418)")
     print("  primeiro, só pelo user_id da titular:")
     carla = eliminar_titular("207418", "Carla Regina Souza", BANCO)
     mostrar(carla)
@@ -83,12 +92,12 @@ if __name__ == "__main__":
     conferir(not ocorrencias(BANCO, ["207481"]),
              "a matrícula 207481, digitada por engano, também saiu do banco")
 
-    print("\n[6] A testemunha continua intacta?")
+    print("\n[7] A testemunha continua intacta?")
     heitor = ocorrencias(BANCO, ["200941", "Heitor Vasconcelos Lima"])
     conferir(bool(heitor), f"os dados de Heitor continuam no banco {heitor}")
     conferir(any(s["session_id"] == "DIA-2026-0104" for s in sessoes(BANCO)),
              "a sessão DIA-2026-0104 continua no banco")
-    inventario("[7] O que restou no banco")
+    inventario("[8] O que restou no banco")
 
     print(f"\nResultado: {'todas as conferências passaram' if not falhas else f'{len(falhas)} falha(s)'}")
     for falha in falhas:

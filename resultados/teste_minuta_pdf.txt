@@ -1,0 +1,8 @@
+[1] Com a fonte do sistema
+  [ok] PDF gerado (187,847 bytes) e gravado em resultados/minuta_exemplo.pdf
+[2] Sem nenhuma fonte instalada (Helvetica de reserva)
+  [ok] PDF gerado com a Helvetica (165,524 bytes)
+[3] Logo
+  [ok] logo encontrado em assets/logo_sema.png
+
+Resultado: todas as conferências passaram

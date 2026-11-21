@@ -1,0 +1,27 @@
+[1] Registro da conferência
+
+  [ok] 0101: servidor concordou com o agente (apto); motivo dispensado
+  [ok] 0105: servidor divergiu (diligência em vez de não recomendado), com motivo
+  [ok] 0108: divergência sem motivo recusada (o motivo é obrigatório quando o encaminhamento diverge da sugestão)
+  [ok] 0107: execução com erro, devolvida à análise manual (sem sugestão do agente)
+
+[2] Indicadores e minimização
+
+  {'total': 3, 'divergencias': 1, 'taxa_divergencia': 0.3333333333333333, 'sem_instrucao': 1, 'minutas_editadas': 1}
+  [ok] 3 conferências registradas (a recusada por falta de motivo não conta)
+  [ok] 1 discordância (0105)
+  [ok] taxa de discordância = 1/3
+  [ok] 1 instrução não chegou ao conferente (0107)
+  [ok] o registro não tem colunas de nome, matrícula ou minuta: ['id', 'numero_pedido', 'turno', 'situacao_instrucao', 'sugestao_agente', 'encaminhamento', 'divergiu', 'motivo', 'minuta_editada', 'chamadas', 'custo_usd', 'segundos', 'registrado_em']
+  [ok] CSV exportado com cabeçalho + 3 linhas
+
+[3] Prazo de retenção (30 dias)
+
+  elegível: DIA-TESTE-A · último registro do conferente em 2026-11-21T17:48:44
+  elegível: DIA-TESTE-C · última execução (sem registro do conferente) em 2026-11-21T17:48:44
+  [ok] elegíveis: A (registro há 35 dias) e C (sem registro, execução há 35 dias)
+  [ok] hoje, nenhuma sessão está vencida
+  [ok] depois do expurgo, só resta B: {'DIA-TESTE-B'}
+  [ok] o registro das conferências não é expurgado
+
+Resultado: todas as conferências passaram
