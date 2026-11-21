@@ -13,7 +13,7 @@ repositório e são escritos no fim, a partir do que está registrado aqui.
 | 2 | Ferramentas sobre os dados do órgão | concluída | [etapa-2](etapa-2-ferramentas.md) |
 | 3 | Agente, saída estruturada, limites e filtro | concluída | [etapa-3](etapa-3-agente.md) |
 | 4 | Memória, custo por turno e eliminação | concluída | [etapa-4](etapa-4-memoria.md) |
-| 5 | Formulário de conferência | a fazer | |
+| 5 | Formulário de conferência | concluída | [etapa-5](etapa-5-formulario.md) |
 | 6 | Medição contra o gabarito e falhas provocadas | a fazer | |
 
 Dúvidas sobre o enunciado: [duvidas-enunciado.md](duvidas-enunciado.md)
