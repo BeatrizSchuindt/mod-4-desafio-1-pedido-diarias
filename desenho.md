@@ -149,10 +149,10 @@ com 2 passos), o número esperado de casos certos é:
 - Encurtar a cadeia é a intervenção mais eficaz sobre a confiabilidade (Aula 01, Seção 6). Por
   isso as contas não são passos do modelo: cada conta feita pelo modelo seria mais uma chance de
   erro na multiplicação acima.
-- Com as chamadas paralelas ligadas, o cadastro e o histórico poderiam ser pedidos na mesma
-  chamada, e o pedido completo cairia para 4 passos (96,1% e 81,5%). O ganho tem um risco: o
-  modelo pode pedir uma ferramenta antes de ter o dado de que ela depende, como o grupo que vem
-  do cadastro. A medição compara as duas configurações.
+- Com as chamadas paralelas ligadas, o histórico e o saldo, que dependem só do cálculo, poderiam
+  ser pedidos na mesma chamada, e o pedido completo cairia para 4 passos (96,1% e 81,5%). O
+  ganho tem um risco: o modelo pode pedir uma ferramenta antes de ter o dado de que ela depende,
+  como o grupo que vem do cadastro. A medição compara as duas configurações.
 - A tabela supõe passos independentes, uma simplificação da Aula 01. O valor medido pode
   divergir, e essa diferença será registrada no `relatorio.md`.
 
