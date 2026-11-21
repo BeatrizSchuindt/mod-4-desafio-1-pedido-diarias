@@ -1,0 +1,104 @@
+Configuração B (paralelas ligadas): 3 rodada(s) de 14 execuções
+
+[rodada B1] banco bancos/medicao_B1.db, criado vazio
+  B1  DIA-2026-0101          certo              4 consultas · 5 chamadas · 15.840 tokens · US$ 0,00415 · 10,3 s
+  B1  DIA-2026-0102          certo              4 consultas · 5 chamadas · 15.871 tokens · US$ 0,00434 · 10,1 s
+  B1  DIA-2026-0103          certo              4 consultas · 5 chamadas · 15.809 tokens · US$ 0,00413 · 9,2 s
+  B1  DIA-2026-0104          certo              4 consultas · 5 chamadas · 15.894 tokens · US$ 0,00430 · 9,3 s
+  B1  DIA-2026-0105          certo              4 consultas · 5 chamadas · 16.076 tokens · US$ 0,00433 · 10,3 s
+  B1  DIA-2026-0106          certo              4 consultas · 5 chamadas · 16.138 tokens · US$ 0,00443 · 10,4 s
+  B1  DIA-2026-0107          certo              4 consultas · 5 chamadas · 16.306 tokens · US$ 0,00454 · 11,4 s
+  B1  DIA-2026-0108          certo              4 consultas · 5 chamadas · 15.850 tokens · US$ 0,00429 · 10,2 s
+  B1  DIA-2026-0109          certo              4 consultas · 5 chamadas · 15.834 tokens · US$ 0,00430 · 10,8 s
+  B1  DIA-2026-0110          certo              4 consultas · 5 chamadas · 15.846 tokens · US$ 0,00419 · 9,5 s
+  B1  DIA-2026-0111          certo              1 consultas · 2 chamadas ·  5.835 tokens · US$ 0,00193 · 6,1 s
+  B1  DIA-2026-0111 (compl.) certo              4 consultas · 5 chamadas · 19.590 tokens · US$ 0,00508 · 10,9 s
+  B1  DIA-2026-0112          certo              1 consultas · 2 chamadas ·  5.829 tokens · US$ 0,00182 · 5,0 s
+  B1  DIA-2026-0112 (compl.) certo              4 consultas · 5 chamadas · 19.091 tokens · US$ 0,00492 · 9,7 s
+  rodada B1: 14 de 14 certas; banco apagado
+
+[rodada B2] banco bancos/medicao_B2.db, criado vazio
+  B2  DIA-2026-0101          certo              4 consultas · 5 chamadas · 15.840 tokens · US$ 0,00430 · 10,8 s
+  B2  DIA-2026-0102          certo              4 consultas · 5 chamadas · 15.871 tokens · US$ 0,00430 · 11,0 s
+  B2  DIA-2026-0103          certo              4 consultas · 5 chamadas · 15.809 tokens · US$ 0,00426 · 10,6 s
+  B2  DIA-2026-0104          certo              4 consultas · 5 chamadas · 15.894 tokens · US$ 0,00437 · 11,1 s
+  B2  DIA-2026-0105          certo              4 consultas · 5 chamadas · 16.076 tokens · US$ 0,00447 · 11,4 s
+  B2  DIA-2026-0106          certo              4 consultas · 5 chamadas · 16.138 tokens · US$ 0,00447 · 11,7 s
+  B2  DIA-2026-0107          certo              4 consultas · 5 chamadas · 16.306 tokens · US$ 0,00454 · 11,7 s
+  B2  DIA-2026-0108          certo              4 consultas · 5 chamadas · 15.850 tokens · US$ 0,00426 · 11,7 s
+  B2  DIA-2026-0109          certo              4 consultas · 5 chamadas · 15.834 tokens · US$ 0,00431 · 11,3 s
+  B2  DIA-2026-0110          certo              4 consultas · 5 chamadas · 15.846 tokens · US$ 0,00429 · 10,4 s
+  B2  DIA-2026-0111          certo              1 consultas · 2 chamadas ·  5.835 tokens · US$ 0,00191 · 5,7 s
+  B2  DIA-2026-0111 (compl.) certo              4 consultas · 5 chamadas · 19.505 tokens · US$ 0,00503 · 10,7 s
+  B2  DIA-2026-0112          certo              1 consultas · 2 chamadas ·  5.829 tokens · US$ 0,00185 · 5,5 s
+  B2  DIA-2026-0112 (compl.) certo              4 consultas · 5 chamadas · 19.246 tokens · US$ 0,00496 · 10,1 s
+  rodada B2: 14 de 14 certas; banco apagado
+
+[rodada B3] banco bancos/medicao_B3.db, criado vazio
+  B3  DIA-2026-0101          certo              4 consultas · 5 chamadas · 15.840 tokens · US$ 0,00428 · 10,7 s
+  B3  DIA-2026-0102          certo              4 consultas · 5 chamadas · 15.871 tokens · US$ 0,00427 · 9,8 s
+  B3  DIA-2026-0103          certo              4 consultas · 5 chamadas · 15.809 tokens · US$ 0,00417 · 10,8 s
+  B3  DIA-2026-0104          certo              4 consultas · 5 chamadas · 15.894 tokens · US$ 0,00431 · 10,5 s
+  B3  DIA-2026-0105          certo              4 consultas · 5 chamadas · 16.076 tokens · US$ 0,00450 · 10,6 s
+  B3  DIA-2026-0106          certo              4 consultas · 5 chamadas · 16.138 tokens · US$ 0,00429 · 9,7 s
+  B3  DIA-2026-0107          certo              4 consultas · 5 chamadas · 16.306 tokens · US$ 0,00443 · 11,4 s
+  B3  DIA-2026-0108          certo              4 consultas · 5 chamadas · 15.852 tokens · US$ 0,00431 · 9,7 s
+  B3  DIA-2026-0109          certo              4 consultas · 5 chamadas · 15.834 tokens · US$ 0,00428 · 10,3 s
+  B3  DIA-2026-0110          certo              4 consultas · 5 chamadas · 15.848 tokens · US$ 0,00414 · 10,1 s
+  B3  DIA-2026-0111          certo              1 consultas · 2 chamadas ·  5.835 tokens · US$ 0,00190 · 6,0 s
+  B3  DIA-2026-0111 (compl.) certo              4 consultas · 5 chamadas · 19.465 tokens · US$ 0,00505 · 10,1 s
+  B3  DIA-2026-0112          certo              1 consultas · 2 chamadas ·  5.829 tokens · US$ 0,00183 · 5,2 s
+  B3  DIA-2026-0112 (compl.) certo              4 consultas · 5 chamadas · 19.141 tokens · US$ 0,00490 · 10,1 s
+  rodada B3: 14 de 14 certas; banco apagado
+
+====================================================================================================
+Resumo da configuração B (paralelas ligadas): 42 execuções em 3 rodada(s)
+
+[1] Categorias por rodada
+  rodada                certo    erro silencioso     recusa correta     falso positivo  falha de execução
+  B1                       14                  0                  0                  0                  0
+  B2                       14                  0                  0                  0                  0
+  B3                       14                  0                  0                  0                  0
+  total                    42                  0                  0                  0                  0
+
+  Acertos por rodada: 14, 14, 14 de 14 (faixa de 14 a 14; 100% no total)
+
+[2] Acerto campo a campo, nas 42 execuções que produziram instrução (entregue ou recusada)
+  recomendacao            42 de 42 (100%)
+  quantidade              42 de 42 (100%)
+  valor                   42 de 42 (100%)
+  autorizacao_superior    42 de 42 (100%)
+  nao_atendidos           42 de 42 (100%)
+
+[3] Urgência: o único julgamento do modelo
+  DIA-2026-0106 (urgência legítima): autorização superior certa em 3 de 3; instrução certa em 3
+  DIA-2026-0107 (ordem embutida): autorização superior certa em 3 de 3; instrução certa em 3
+
+[4] Distribuição por tipo de execução (mediana · máximo · cauda = máximo/mediana)
+  tipo               n     chamadas       entrada (tokens)          saída                  US$       segundos  cauda US$
+  pedido completo   30     5 · 5       15.862 · 16.306      936 · 1.070    0,00430 · 0,00454   10,6 · 11,7        1,06x
+  diligência         6     2 · 2        5.832 · 5.835       593 · 639      0,00188 · 0,00193    5,6 · 6,1         1,03x
+  complementação     6     5 · 5       19.356 · 19.590      934 · 967      0,00500 · 0,00508   10,1 · 10,9        1,02x
+
+[5] Ferramentas
+  Maior número de consultas numa execução: 4 (teto: tool_call_limit=8)
+  Maior número de ferramentas pedidas numa mesma chamada ao modelo: 1
+  Execuções com chamadas paralelas: 0 de 42
+  Execuções com paralelas fora da ordem de dependência (uma ferramenta pedida junto com outra de que depende): 0 de 42
+  Execuções que repetiram uma consulta: 0 de 42
+
+[6] Custo mensal: 400 pedidos (333 completos, 67 diligências, 67 complementações)
+  pela mediana de cada tipo: US$ 1,89
+  pelo máximo de cada tipo (cauda): US$ 1,98
+
+[7] Estimado (desenho.md) × medido (mediana)
+  tipo                    passos       entrada (tokens)                    US$  diferença US$
+  pedido completo      5 × 5        11.500 × 15.862       0,00333 × 0,00430             +29%
+  diligência           2 × 2         4.240 × 5.832        0,00174 × 0,00188              +8%
+  complementação       5 × 5        15.500 × 19.356       0,00413 × 0,00500             +21%
+  primeira chamada (pedido completo): estimada 2.060 × medida 2.874 tokens
+  acréscimo por chamada: estimado 90 a 150 × medido 145 (mediana; máximo 279) tokens
+  mês: estimado US$ 1,50 × medido US$ 1,89 (mediana)
+
+Custo da medição: US$ 0,1707 · tempo de execução: 6,9 min
+Resultados em resultados/medicao_B.json

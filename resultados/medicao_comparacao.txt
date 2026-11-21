@@ -1,0 +1,24 @@
+Comparação das configurações (pedido completo = os 10 pedidos com as 4 consultas)
+
+                                                       A: paralelas desligadas   B: paralelas ligadas
+  acertos por rodada                                               14, 14, 14             14, 14, 14
+  certo (total)                                                            42                     42
+  erro silencioso (total)                                                   0                      0
+  recusa correta (total)                                                    0                      0
+  falso positivo (total)                                                    0                      0
+  falha de execução (total)                                                 0                      0
+  urgência certa (0106 e 0107)                                              6                      6
+  execuções com chamadas paralelas                                    0 de 42                0 de 42
+  paralelas fora da ordem de dependência                              0 de 42                0 de 42
+  máx. de ferramentas numa chamada                                          1                      1
+  chamadas ao modelo, pedido completo (mediana)                             5                      5
+  entrada, pedido completo (mediana, tokens)                           15.862                 15.862
+  US$, pedido completo (mediana · máximo)                   0,00432 · 0,00457      0,00430 · 0,00454
+  segundos, pedido completo (mediana · máximo)                    10,6 · 13,7            10,6 · 11,7
+  custo mensal (mediana · cauda)                                  1,90 · 2,00            1,89 · 1,98
+
+Leitura
+  - Em B, o modelo usou chamadas paralelas em 0 de 42 execuções; a mediana de chamadas ao modelo no pedido completo caiu 0.
+  - O cálculo depende do grupo do cadastro, e o histórico e o saldo dependem do cálculo: só esses dois podem ser pedidos juntos. A economia máxima possível é de uma chamada por pedido completo.
+  - Paralelas fora da ordem de dependência em B: 0. Nesses casos o modelo pediu uma ferramenta sem ter o dado de que ela depende; a barreira recusa se o dado suposto não bater com o devolvido.
+  - Diferença de acertos (B − A): +0; de erros silenciosos (B − A): +0.

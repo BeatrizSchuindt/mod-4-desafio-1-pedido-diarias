@@ -143,7 +143,8 @@ def texto_da_complementacao(complementacao: dict) -> str:
 
 
 def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False,
-                     memoria: str = "historico", banco: Path = BANCO_PADRAO) -> Agent:
+                     memoria: str = "historico", banco: Path = BANCO_PADRAO,
+                     ferramentas: list | None = None, teto: int = TOOL_CALL_LIMIT) -> Agent:
     """Monta o agente. Fica em função própria para o formulário guardá-lo em cache.
 
     `paralelas` liga as chamadas paralelas de ferramentas, desligadas por padrão porque o
@@ -160,6 +161,9 @@ def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False,
       (a configuração do sistema);
     - "historico_e_usuario": o histórico mais as memórias do usuário (update_memory_on_run),
       fatos que o Agno extrai sobre a pessoa e guarda entre sessões.
+
+    `ferramentas` e `teto` existem para provocar falhas (provocar_falhas.py): trocar uma
+    ferramenta por uma versão que falha ou foi adulterada, e baixar o tool_call_limit.
     """
     if memoria not in MEMORIAS:
         raise ValueError(f"memória '{memoria}' desconhecida; use uma de {MEMORIAS}")
@@ -176,10 +180,10 @@ def construir_agente(paralelas: bool = False, provocar_erro_api: bool = False,
                         "update_memory_on_run": memoria == "historico_e_usuario"}
     return Agent(
         model=modelo,
-        tools=FERRAMENTAS,
+        tools=ferramentas or FERRAMENTAS,
         instructions=INSTRUCAO,
         output_schema=Instrucao,
-        tool_call_limit=TOOL_CALL_LIMIT,
+        tool_call_limit=teto,
         pre_hooks=[filtro_dados_pessoais()],
         markdown=False,
         telemetry=False,
@@ -193,11 +197,16 @@ def _medidas(resposta, inicio: float) -> dict:
     entrada = getattr(metricas, "input_tokens", 0) or 0
     saida = getattr(metricas, "output_tokens", 0) or 0
     # Mensagens que vieram do histórico (from_history) são de execuções anteriores e não contam.
-    por_chamada = [m.metrics.input_tokens for m in (getattr(resposta, "messages", None) or [])
-                   if m.role == "assistant" and m.metrics and not getattr(m, "from_history", False)]
+    desta_execucao = [m for m in (getattr(resposta, "messages", None) or [])
+                      if m.role == "assistant" and not getattr(m, "from_history", False)]
+    por_chamada = [m.metrics.input_tokens for m in desta_execucao if m.metrics]
     return {"segundos": round(time.perf_counter() - inicio, 1),
             "chamadas_ao_modelo": len(por_chamada),
             "entrada_por_chamada": por_chamada,
+            # As ferramentas pedidas em cada chamada ao modelo: mais de uma é paralelismo.
+            "ferramentas_por_chamada": [[(c.get("function") or {}).get("name", "?")
+                                         for c in m.tool_calls]
+                                        for m in desta_execucao if m.tool_calls],
             "tokens_entrada": entrada,
             "tokens_saida": saida,
             "custo_usd": entrada / 1e6 * USD_ENTRADA + saida / 1e6 * USD_SAIDA}

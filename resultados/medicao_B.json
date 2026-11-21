@@ -1,0 +1,2885 @@
+{
+  "configuracao": "B",
+  "rotulo": "paralelas ligadas",
+  "paralelas": true,
+  "resumo": {
+    "execucoes": 42,
+    "rodadas": [
+      "B1",
+      "B2",
+      "B3"
+    ],
+    "por_rodada": {
+      "B1": {
+        "certo": 14,
+        "erro silencioso": 0,
+        "recusa correta": 0,
+        "falso positivo": 0,
+        "falha de execução": 0
+      },
+      "B2": {
+        "certo": 14,
+        "erro silencioso": 0,
+        "recusa correta": 0,
+        "falso positivo": 0,
+        "falha de execução": 0
+      },
+      "B3": {
+        "certo": 14,
+        "erro silencioso": 0,
+        "recusa correta": 0,
+        "falso positivo": 0,
+        "falha de execução": 0
+      }
+    },
+    "categorias": {
+      "certo": 42,
+      "erro silencioso": 0,
+      "recusa correta": 0,
+      "falso positivo": 0,
+      "falha de execução": 0
+    },
+    "certas_por_rodada": [
+      14,
+      14,
+      14
+    ],
+    "com_instrucao": 42,
+    "campo_a_campo": {
+      "recomendacao": 42,
+      "quantidade": 42,
+      "valor": 42,
+      "autorizacao_superior": 42,
+      "nao_atendidos": 42
+    },
+    "urgencia": {
+      "DIA-2026-0106": {
+        "execucoes": 3,
+        "autorizacao_certa": 3,
+        "certas": 3
+      },
+      "DIA-2026-0107": {
+        "execucoes": 3,
+        "autorizacao_certa": 3,
+        "certas": 3
+      }
+    },
+    "distribuicao": {
+      "completo": {
+        "chamadas": {
+          "n": 30,
+          "mediana": 5.0,
+          "maximo": 5,
+          "cauda": 1.0
+        },
+        "entrada": {
+          "n": 30,
+          "mediana": 15861.5,
+          "maximo": 16306,
+          "cauda": 1.0280238312896006
+        },
+        "saida": {
+          "n": 30,
+          "mediana": 936.0,
+          "maximo": 1070,
+          "cauda": 1.143162393162393
+        },
+        "usd": {
+          "n": 30,
+          "mediana": 0.0043008000000000005,
+          "maximo": 0.004541600000000001,
+          "cauda": 1.0559895833333335
+        },
+        "segundos": {
+          "n": 30,
+          "mediana": 10.55,
+          "maximo": 11.7,
+          "cauda": 1.1090047393364928
+        },
+        "primeira_chamada": {
+          "n": 30,
+          "mediana": 2874.5,
+          "maximo": 2922,
+          "cauda": 1.0165246129761698
+        }
+      },
+      "diligencia": {
+        "chamadas": {
+          "n": 6,
+          "mediana": 2.0,
+          "maximo": 2,
+          "cauda": 1.0
+        },
+        "entrada": {
+          "n": 6,
+          "mediana": 5832.0,
+          "maximo": 5835,
+          "cauda": 1.000514403292181
+        },
+        "saida": {
+          "n": 6,
+          "mediana": 593.0,
+          "maximo": 639,
+          "cauda": 1.0775716694772344
+        },
+        "usd": {
+          "n": 6,
+          "mediana": 0.001878,
+          "maximo": 0.0019338,
+          "cauda": 1.0297124600638978
+        },
+        "segundos": {
+          "n": 6,
+          "mediana": 5.6,
+          "maximo": 6.1,
+          "cauda": 1.0892857142857142
+        },
+        "primeira_chamada": {
+          "n": 6,
+          "mediana": 2866.0,
+          "maximo": 2866,
+          "cauda": 1.0
+        }
+      },
+      "complementacao": {
+        "chamadas": {
+          "n": 6,
+          "mediana": 5.0,
+          "maximo": 5,
+          "cauda": 1.0
+        },
+        "entrada": {
+          "n": 6,
+          "mediana": 19355.5,
+          "maximo": 19590,
+          "cauda": 1.0121154193898376
+        },
+        "saida": {
+          "n": 6,
+          "mediana": 934.5,
+          "maximo": 967,
+          "cauda": 1.0347779561262707
+        },
+        "usd": {
+          "n": 6,
+          "mediana": 0.004996500000000001,
+          "maximo": 0.0050772000000000005,
+          "cauda": 1.0161513059141398
+        },
+        "segundos": {
+          "n": 6,
+          "mediana": 10.1,
+          "maximo": 10.9,
+          "cauda": 1.0792079207920793
+        },
+        "primeira_chamada": {
+          "n": 6,
+          "mediana": 3581.5,
+          "maximo": 3628,
+          "cauda": 1.0129833868490856
+        }
+      }
+    },
+    "acrescimo_por_chamada": {
+      "n": 120,
+      "mediana": 145.0,
+      "maximo": 279,
+      "cauda": 1.9241379310344828
+    },
+    "max_consultas_numa_execucao": 4,
+    "max_ferramentas_numa_chamada": 1,
+    "execucoes_com_paralelas": 0,
+    "execucoes_fora_de_ordem": 0,
+    "execucoes_com_consulta_repetida": 0,
+    "custo_mensal": {
+      "mediana": 1.8927579,
+      "cauda": 1.9820898000000002
+    },
+    "custo_total": 0.17070760000000001,
+    "segundos_total": 411.9
+  },
+  "execucoes": [
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0101",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.3,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2878,
+        2981,
+        3178,
+        3359,
+        3444
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15840,
+      "tokens_saida": 816,
+      "custo_usd": 0.0041472
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0102",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2871,
+        2973,
+        3170,
+        3386,
+        3471
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15871,
+      "tokens_saida": 971,
+      "custo_usd": 0.0043394
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0103",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.2,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2979,
+        3170,
+        3351,
+        3436
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15809,
+      "tokens_saida": 803,
+      "custo_usd": 0.0041254
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0104",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.3,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2886,
+        2992,
+        3189,
+        3370,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15894,
+      "tokens_saida": 936,
+      "custo_usd": 0.004302
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0105",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.3,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2876,
+        2980,
+        3258,
+        3439,
+        3523
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16076,
+      "tokens_saida": 932,
+      "custo_usd": 0.0043336
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0106",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.4,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2888,
+        2991,
+        3270,
+        3451,
+        3538
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16138,
+      "tokens_saida": 1000,
+      "custo_usd": 0.0044276
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0107",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.4,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2922,
+        3026,
+        3304,
+        3485,
+        3569
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16306,
+      "tokens_saida": 1067,
+      "custo_usd": 0.004541600000000001
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0108",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.2,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2866,
+        2968,
+        3165,
+        3383,
+        3468
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15850,
+      "tokens_saida": 932,
+      "custo_usd": 0.0042883999999999995
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0109",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.8,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2867,
+        2970,
+        3167,
+        3373,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15834,
+      "tokens_saida": 944,
+      "custo_usd": 0.004299600000000001
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0110",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.5,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2982,
+        3179,
+        3360,
+        3452
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15846,
+      "tokens_saida": 850,
+      "custo_usd": 0.0041892
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0111",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 6.1,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2969
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5835,
+      "tokens_saida": 639,
+      "custo_usd": 0.0019338
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0111",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.9,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3628,
+        3731,
+        3928,
+        4109,
+        4194
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19590,
+      "tokens_saida": 966,
+      "custo_usd": 0.0050772000000000005
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0112",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 5.0,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2963
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5829,
+      "tokens_saida": 541,
+      "custo_usd": 0.0018150000000000002
+    },
+    {
+      "rodada": "B1",
+      "pedido": "DIA-2026-0112",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3529,
+        3631,
+        3828,
+        4009,
+        4094
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19091,
+      "tokens_saida": 917,
+      "custo_usd": 0.0049186
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0101",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.8,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2878,
+        2981,
+        3178,
+        3359,
+        3444
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15840,
+      "tokens_saida": 946,
+      "custo_usd": 0.0043032
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0102",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.0,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2871,
+        2973,
+        3170,
+        3386,
+        3471
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15871,
+      "tokens_saida": 936,
+      "custo_usd": 0.0042974
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0103",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.6,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2979,
+        3170,
+        3351,
+        3436
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15809,
+      "tokens_saida": 911,
+      "custo_usd": 0.004255
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0104",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2886,
+        2992,
+        3189,
+        3370,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15894,
+      "tokens_saida": 994,
+      "custo_usd": 0.0043716
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0105",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.4,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2876,
+        2980,
+        3258,
+        3439,
+        3523
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16076,
+      "tokens_saida": 1043,
+      "custo_usd": 0.0044668
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0106",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2888,
+        2991,
+        3270,
+        3451,
+        3538
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16138,
+      "tokens_saida": 1032,
+      "custo_usd": 0.004466
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0107",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2922,
+        3026,
+        3304,
+        3485,
+        3569
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16306,
+      "tokens_saida": 1064,
+      "custo_usd": 0.004538
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0108",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2866,
+        2968,
+        3165,
+        3383,
+        3468
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15850,
+      "tokens_saida": 907,
+      "custo_usd": 0.0042584
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0109",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.3,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2867,
+        2970,
+        3167,
+        3373,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15834,
+      "tokens_saida": 951,
+      "custo_usd": 0.004308
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0110",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.4,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2982,
+        3179,
+        3360,
+        3452
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15846,
+      "tokens_saida": 936,
+      "custo_usd": 0.0042924
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0111",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 5.7,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2969
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5835,
+      "tokens_saida": 622,
+      "custo_usd": 0.0019134
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0111",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3611,
+        3714,
+        3911,
+        4092,
+        4177
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19505,
+      "tokens_saida": 944,
+      "custo_usd": 0.005033800000000001
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0112",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 5.5,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2963
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5829,
+      "tokens_saida": 572,
+      "custo_usd": 0.0018522
+    },
+    {
+      "rodada": "B2",
+      "pedido": "DIA-2026-0112",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3560,
+        3662,
+        3859,
+        4040,
+        4125
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19246,
+      "tokens_saida": 925,
+      "custo_usd": 0.0049592
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0101",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2878,
+        2981,
+        3178,
+        3359,
+        3444
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15840,
+      "tokens_saida": 930,
+      "custo_usd": 0.0042840000000000005
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0102",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.8,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2871,
+        2973,
+        3170,
+        3386,
+        3471
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15871,
+      "tokens_saida": 913,
+      "custo_usd": 0.004269800000000001
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0103",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 0.5,
+        "valor": 140.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.8,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2979,
+        3170,
+        3351,
+        3436
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15809,
+      "tokens_saida": 836,
+      "custo_usd": 0.004165
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0104",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 2.5,
+        "valor": 1500.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.5,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2886,
+        2992,
+        3189,
+        3370,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15894,
+      "tokens_saida": 944,
+      "custo_usd": 0.0043116
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0105",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 700.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.6,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2876,
+        2980,
+        3258,
+        3439,
+        3523
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16076,
+      "tokens_saida": 1070,
+      "custo_usd": 0.0044992
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0106",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 4.5,
+        "valor": 1260.0,
+        "autorizacao_superior": true,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2888,
+        2991,
+        3270,
+        3451,
+        3538
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16138,
+      "tokens_saida": 883,
+      "custo_usd": 0.0042872
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0107",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 2.5,
+        "valor": 550.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "antecedencia"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 11.4,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2922,
+        3026,
+        3304,
+        3485,
+        3569
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 16306,
+      "tokens_saida": 971,
+      "custo_usd": 0.0044264000000000005
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0108",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "prestacao_contas"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 9.7,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2866,
+        2968,
+        3165,
+        3383,
+        3470
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15852,
+      "tokens_saida": 947,
+      "custo_usd": 0.0043068
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0109",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "limite_mensal"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.3,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2867,
+        2970,
+        3167,
+        3373,
+        3457
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15834,
+      "tokens_saida": 924,
+      "custo_usd": 0.004275600000000001
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0110",
+      "turno": "pedido",
+      "tipo": "completo",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "nao_recomendado",
+        "quantidade": 4.5,
+        "valor": 1800.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "saldo_orcamentario"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        2873,
+        2982,
+        3179,
+        3360,
+        3454
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 15848,
+      "tokens_saida": 812,
+      "custo_usd": 0.004144
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0111",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "dados_completos"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 6.0,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2969
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5835,
+      "tokens_saida": 614,
+      "custo_usd": 0.0019038
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0111",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 980.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3603,
+        3706,
+        3903,
+        4084,
+        4169
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19465,
+      "tokens_saida": 967,
+      "custo_usd": 0.0050534
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0112",
+      "turno": "pedido",
+      "tipo": "diligencia",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "esperado": {
+        "recomendacao": "diligencia",
+        "quantidade": null,
+        "valor": null,
+        "autorizacao_superior": false,
+        "nao_atendidos": [
+          "cadastro"
+        ]
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor"
+      ],
+      "segundos": 5.2,
+      "chamadas_ao_modelo": 2,
+      "entrada_por_chamada": [
+        2866,
+        2963
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 5829,
+      "tokens_saida": 551,
+      "custo_usd": 0.001827
+    },
+    {
+      "rodada": "B3",
+      "pedido": "DIA-2026-0112",
+      "turno": "complementacao",
+      "tipo": "complementacao",
+      "situacao": "entregue",
+      "categoria": "certo",
+      "obtido": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "esperado": {
+        "recomendacao": "apto_para_autorizacao",
+        "quantidade": 3.5,
+        "valor": 770.0,
+        "autorizacao_superior": false,
+        "nao_atendidos": []
+      },
+      "campos_certos": {
+        "recomendacao": true,
+        "quantidade": true,
+        "valor": true,
+        "autorizacao_superior": true,
+        "nao_atendidos": true
+      },
+      "motivos": [],
+      "ferramentas": [
+        "consultar_servidor",
+        "calcular_diarias",
+        "consultar_historico_diarias",
+        "consultar_saldo_diarias"
+      ],
+      "segundos": 10.1,
+      "chamadas_ao_modelo": 5,
+      "entrada_por_chamada": [
+        3539,
+        3641,
+        3838,
+        4019,
+        4104
+      ],
+      "ferramentas_por_chamada": [
+        [
+          "consultar_servidor"
+        ],
+        [
+          "calcular_diarias"
+        ],
+        [
+          "consultar_historico_diarias"
+        ],
+        [
+          "consultar_saldo_diarias"
+        ]
+      ],
+      "max_ferramentas_por_chamada": 1,
+      "paralela_fora_de_ordem": false,
+      "tokens_entrada": 19141,
+      "tokens_saida": 893,
+      "custo_usd": 0.0048998
+    }
+  ]
+}
