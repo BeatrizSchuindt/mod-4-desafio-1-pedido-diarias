@@ -14,7 +14,10 @@ da instrução veio do pedido ou das ferramentas, em quatro grupos:
    o valor vêm do cálculo (ancoragem numérica, Aula 04);
 3. instrução ancorada: número, matrícula, quantidade, valor, verificações e valores em reais
    citados no texto coincidem com o que as ferramentas devolveram, e a recomendação é a que os
-   vereditos das ferramentas impõem;
+   vereditos das ferramentas impõem. Antes, os próprios vereditos são conferidos: cada critério
+   só pode ser decidido pela sua ferramenta, e um mesmo resultado não pode trazer vereditos
+   diferentes para o mesmo critério. Se trouxer, o resultado foi adulterado (por exemplo, por
+   um texto livre da base de dados que imita o formato do veredito) e nada nele é confiável;
 4. completude e sigilo: recomendação de mérito só com as quatro consultas feitas, e nenhum CPF
    ou dado bancário no texto da instrução.
 
@@ -45,6 +48,13 @@ DADO_PESSOAL = [re.compile(padrao) for padrao in PADROES.values()]
 TOLERANCIA = 0.01
 CONSULTAS_DE_MERITO = ("cadastro", "antecedencia", "prestacao_contas", "limite_mensal",
                        "saldo_orcamentario")
+# A ferramenta que decide cada critério. É o código dela que escreve o veredito, uma vez só.
+DECIDIDO_POR = {"cadastro": "consultar_servidor",
+                "dados_completos": "calcular_diarias",
+                "antecedencia": "calcular_diarias",
+                "prestacao_contas": "consultar_historico_diarias",
+                "limite_mensal": "consultar_historico_diarias",
+                "saldo_orcamentario": "consultar_saldo_diarias"}
 
 
 # ------------------------------------------------------------------ utilidades
@@ -89,6 +99,31 @@ def _ultima(chamadas: list[Chamada], ferramenta: str, contendo: str) -> Chamada 
     return None
 
 
+def _vereditos(chamadas: list[Chamada]) -> tuple[dict[str, bool], list[str]]:
+    """Os vereditos devolvidos pelas ferramentas e os motivos de recusa por adulteração.
+
+    Cada ferramenta escreve o veredito de cada critério que decide uma única vez. Um veredito
+    de critério que a ferramenta não decide, ou dois vereditos diferentes do mesmo critério no
+    mesmo resultado, só podem ter vindo de texto que não é do código da ferramenta. Quando a
+    mesma ferramenta é chamada de novo, vale o resultado mais recente.
+    """
+    vereditos: dict[str, bool] = {}
+    motivos: list[str] = []
+    for chamada in chamadas:
+        achados = VEREDITO.findall(chamada.resultado)
+        for criterio in dict.fromkeys(c for c, _ in achados):
+            if DECIDIDO_POR.get(criterio) != chamada.ferramenta:
+                motivos.append(f"{chamada.ferramenta} devolveu um veredito do critério "
+                               f"{criterio}, que ela não decide: o resultado pode ter sido "
+                               "adulterado")
+            if len({s for c, s in achados if c == criterio}) > 1:
+                motivos.append(f"{chamada.ferramenta} devolveu vereditos conflitantes para o "
+                               f"critério {criterio}: o resultado pode ter sido adulterado")
+        for criterio, situacao in achados:
+            vereditos[criterio] = situacao == "ATENDE"
+    return vereditos, motivos
+
+
 def pedido_efetivo(pedido: dict, complementacao: dict | None) -> dict:
     """O pedido com as correções da complementação aplicadas.
 
@@ -119,8 +154,8 @@ def _argumentos_no_pedido(pedido: dict, efetivo: dict, chamadas: list[Chamada]) 
         argumentos = chamada.argumentos
         if "matricula" in argumentos and _texto(argumentos["matricula"]) not in matriculas:
             motivos.append(f"{chamada.ferramenta} consultou a matrícula "
-                           f"{argumentos['matricula']}, que não consta do pedido nem da "
-                           "complementação")
+                           f"{str(argumentos['matricula']).strip() or '(vazia)'}, que não consta "
+                           "do pedido nem da complementação")
         if "nome" in argumentos and _nome(argumentos["nome"]) != _nome(pedido["nome"]):
             motivos.append(f"{chamada.ferramenta} usou o nome '{argumentos['nome']}', diferente "
                            "do nome do pedido")
@@ -182,14 +217,11 @@ def _instrucao_ancorada(pedido: dict, efetivo: dict, chamadas: list[Chamada],
         motivos.append(f"a instrução traz a matrícula {instrucao.matricula}, mas o cadastro "
                        f"conferido é o da matrícula {matricula}")
     elif not matricula and instrucao.matricula.strip() not in {pedido["matricula"], efetivo["matricula"]}:
-        motivos.append(f"a matrícula {instrucao.matricula} não consta do pedido nem da "
-                       "complementação")
+        motivos.append(f"a matrícula {instrucao.matricula.strip() or '(vazia)'} não consta do "
+                       "pedido nem da complementação")
 
-    # Vereditos devolvidos pelas ferramentas (o último de cada critério prevalece)
-    vereditos: dict[str, bool] = {}
-    for chamada in chamadas:
-        for criterio, situacao in VEREDITO.findall(chamada.resultado):
-            vereditos[criterio] = situacao == "ATENDE"
+    # Vereditos devolvidos pelas ferramentas (já conferidos contra adulteração em verificar)
+    vereditos, _ = _vereditos(chamadas)
     completo = bool(_texto(efetivo.get("data_retorno")))
     urgencia = instrucao.exige_autorizacao_superior
 
@@ -285,6 +317,11 @@ def _sigilo(instrucao: Instrucao) -> list[str]:
 def verificar(pedido: dict, complementacao: dict | None, chamadas: list[Chamada],
               instrucao: Instrucao) -> list[str]:
     """Confere a instrução contra o pedido e as ferramentas; devolve os motivos de recusa."""
+    _, adulterados = _vereditos(chamadas)
+    if adulterados:
+        # Um resultado adulterado tira a base de todas as outras conferências, que comparam a
+        # instrução com ele: a recusa vem só desse motivo, para o registro não enganar quem o lê.
+        return adulterados
     efetivo = pedido_efetivo(pedido, complementacao)
     cadastro = _ultima(chamadas, "consultar_servidor", "Critério cadastro: ATENDE.")
     calculo = _ultima(chamadas, "calcular_diarias", "Quantidade:")
