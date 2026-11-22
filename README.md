@@ -395,6 +395,9 @@ do agente, que é onde o sistema guarda dados.
 - **A barreira não julga a urgência.** O erro de julgamento chega sinalizado ao conferente.
 - **O agente não vê** se a autorização escrita do Secretário Adjunto existe, não sabe de outros
   pedidos sobre o mesmo saldo, não conta feriados e não confirma se a justificativa é verdadeira.
+- **O cálculo não confere se o destino é a cidade-sede do servidor.** O art. 4º só paga diária
+  por pernoite fora da sede, mas um pedido para a própria sede seria calculado normalmente.
+  Nenhum pedido do acervo vai para a sede, então isso não afetou os resultados.
 - **O expurgo de 30 dias depende de alguém** clicar no botão ou agendar o comando.
 - **Sessão sob a matrícula de outra pessoa.** No 0112, a sessão da Carla fica sob a matrícula
   digitada por engano (207481), que é de outro servidor. Se ele pedir a eliminação dos próprios
