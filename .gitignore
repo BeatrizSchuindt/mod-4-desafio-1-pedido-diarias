@@ -222,6 +222,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# --- Desafio 01: o enunciado é material do curso e não faz parte da entrega ---
+Desafio-01-*.pdf
+
 # --- Desafio 01: o banco do agente guarda dados pessoais (LGPD) ---
 *.db
 *.db-journal
