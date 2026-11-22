@@ -3,8 +3,9 @@
 Registro de trabalho do Desafio 01 (Instrução de Pedidos de Diárias), etapa por etapa:
 o que foi feito, o que foi medido, o que se descobriu e o que se decidiu.
 
-Os entregáveis do enunciado (`desenho.md`, `relatorio.md` e `LEIA-ME.md`) ficam na raiz do
-repositório e são escritos no fim, a partir do que está registrado aqui.
+Os entregáveis do enunciado (`desenho.md`, `relatorio.md` e o `README.md`, que faz o papel do
+`LEIA-ME.md`) ficam na raiz do repositório e foram escritos no fim, a partir do que está
+registrado aqui.
 
 | Etapa | Assunto | Status | Registro |
 |---|---|---|---|

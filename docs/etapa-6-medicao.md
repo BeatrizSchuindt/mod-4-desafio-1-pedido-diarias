@@ -238,9 +238,9 @@ mensagem padrão, e o pedido voltaria à análise manual.
 - `relatorio.md`: os números desta etapa, as falhas, o estimado × medido e o ponto de conferência
   humana justificado pela medição (20% de discordância no roteiro da Etapa 5, recusas e falhas
   medidas aqui).
-- `LEIA-ME.md`: as três perguntas (paralelas, teto e memória) com os números; como a instrução
-  com dado inventado é impedida (falha 3); dados guardados, retenção de 30 dias e eliminação.
-- `README.md` do repositório.
+- `README.md` (o `LEIA-ME.md` do enunciado): as três perguntas (paralelas, teto e memória) com
+  os números; como a instrução com dado inventado é impedida (falha 3); dados guardados,
+  retenção de 30 dias e eliminação.
 - Pendências da Etapa 5: capturas em `resultados/telas/`, reexportar `conferencias.csv` e decidir
   sobre o logo.
 - Opcional: regerar `resultados/falhas.txt` com a barreira ajustada
