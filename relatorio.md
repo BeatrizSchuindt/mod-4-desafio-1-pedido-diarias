@@ -334,5 +334,6 @@ continuam com conferência completa. A decisão final continua sendo do ordenado
 | [`memoria_custo_por_turno.txt`](resultados/memoria_custo_por_turno.txt) | Custo da memória por turno (Etapa 4) |
 | [`teste_eliminacao.txt`](resultados/teste_eliminacao.txt) | Rotina de eliminação, conferida tabela por tabela |
 | [`teste_conferencias.txt`](resultados/teste_conferencias.txt), [`conferencias.csv`](resultados/conferencias.csv), [`minuta_exemplo.pdf`](resultados/minuta_exemplo.pdf) | Registro da conferência e minuta (Etapa 5) |
+| [`telas/`](resultados/telas/) | Capturas do formulário em uso, com um índice que liga cada uma ao que o enunciado pede (Etapa 5) |
 | [`medicao_A.txt`](resultados/medicao_A.txt), [`medicao_B.txt`](resultados/medicao_B.txt), [`medicao_comparacao.txt`](resultados/medicao_comparacao.txt) | Medição contra o gabarito e comparação das paralelas (os `.json` têm cada execução) |
 | [`falhas.txt`](resultados/falhas.txt) | Falhas provocadas (o `.json` tem cada repetição) |

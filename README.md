@@ -105,6 +105,7 @@ mod-4-desafio-1-pedido-diarias/
 │   ├── gabarito.json          # respostas esperadas; só a medição e os testes leem
 │   └── gerar_dados.py         # gera o acervo e o gabarito
 ├── resultados/                # saídas de todos os testes e medições
+│   └── telas/                 # capturas do formulário em uso, com índice
 ├── docs/                      # diário de cada etapa
 │
 ├── banco/                     # fora do Git: bancos do formulário (memória do agente e conferências)
