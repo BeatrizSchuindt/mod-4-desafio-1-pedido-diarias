@@ -167,9 +167,11 @@ Outros achados:
 
 Nenhuma. Situação final de cada item que estava pendente:
 
-- **Capturas de tela:** feitas, em [`resultados/telas/`](../resultados/telas/), com um índice
-  que liga cada captura ao que o enunciado pede. As capturas 02 a 15 são do roteiro real de
-  21/11, recortadas para mostrar só o formulário; a 01 (progresso) é de 22/11.
+- **Capturas de tela:** feitas, em `resultados/telas/`, com um índice
+  ([`telas.md`](../resultados/telas/telas.md)) que liga cada captura ao que o enunciado pede. As
+  14 capturas são do roteiro real de 21/11, recortadas para mostrar só o formulário. O progresso
+  durante a execução não tem captura, porque todas foram tiradas depois que a instrução
+  terminou; o índice explica onde vê-lo.
 - **`resultados/conferencias.csv`:** mantido com os 5 registros do roteiro, que são os citados no
   `relatorio.md` (5 conferências, 1 discordância). O banco local tem mais 2 registros, feitos
   depois da exportação. Eles não foram exportados, para o CSV continuar igual ao relatório.
