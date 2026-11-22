@@ -152,7 +152,9 @@ com 2 passos), o número esperado de casos certos é:
 - Com as chamadas paralelas ligadas, o histórico e o saldo, que dependem só do cálculo, poderiam
   ser pedidos na mesma chamada, e o pedido completo cairia para 4 passos (96,1% e 81,5%). O
   ganho tem um risco: o modelo pode pedir uma ferramenta antes de ter o dado de que ela depende,
-  como o grupo que vem do cadastro. A medição compara as duas configurações.
+  como o grupo que vem do cadastro. A medição compara as duas configurações. *(Corrigido em
+  21/11, depois da medição: a versão original apontava "cadastro e histórico", mas o histórico
+  precisa da quantidade calculada. Os números não mudaram.)*
 - A tabela supõe passos independentes, uma simplificação da Aula 01. O valor medido pode
   divergir, e essa diferença será registrada no `relatorio.md`.
 
@@ -181,7 +183,7 @@ milhão de tokens de entrada e US$ 1,20 por milhão de saída.
 | Pedido completo | 5 | 11.500 | 860 | 0,00333 | 0,00327 a 0,00339 |
 | Diligência | 2 | 4.240 | 740 | 0,00174 | 0,00173 a 0,00174 |
 | Complementação | 5 | 15.500 | 860 | 0,00413 | 0,00407 a 0,00419 |
-| Teto (`tool_call_limit=8`) | 9 | 23.940 | 1.020 | 0,00601 | pior caso: 8 ferramentas em sequência + resposta |
+| Teto (`tool_call_limit=8`) | 9 | 23.940 | 1.020 | 0,00601 | pior caso: 8 ferramentas em sequência + resposta, com acréscimo de 150 |
 
 **Volume mensal adotado: 400 pedidos.** O enunciado fala em "centenas de pedidos" por mês, e 400
 é um ponto intermediário dessa ordem de grandeza. Aplicando a proporção do acervo (2 de 12
