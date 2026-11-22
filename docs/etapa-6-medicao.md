@@ -235,14 +235,14 @@ mensagem padrão, e o pedido voltaria à análise manual.
 
 ## Pendências
 
-- `relatorio.md`: os números desta etapa, as falhas, o estimado × medido e o ponto de conferência
-  humana justificado pela medição (20% de discordância no roteiro da Etapa 5, recusas e falhas
-  medidas aqui).
-- `README.md` (o `LEIA-ME.md` do enunciado): as três perguntas (paralelas, teto e memória) com
-  os números; como a instrução com dado inventado é impedida (falha 3); dados guardados,
-  retenção de 30 dias e eliminação.
-- Pendências da Etapa 5: capturas em `resultados/telas/`, reexportar `conferencias.csv` e decidir
-  sobre o logo.
-- Opcional: regerar `resultados/falhas.txt` com a barreira ajustada
-  (`python provocar_falhas.py | tee resultados/falhas.txt`, cerca de US$ 0,06). O modelo pode se
-  comportar de outro jeito, e o nome inventado da falha 3 pode não se repetir.
+Nenhuma obrigatória. Situação final:
+
+- **`relatorio.md`:** feito, com os números desta etapa, as falhas, o estimado × medido e o
+  ponto de conferência humana justificado pela medição.
+- **`README.md`** (o `LEIA-ME.md` do enunciado): feito, com as três perguntas respondidas.
+- **Pendências da Etapa 5:** resolvidas (ver o [diário da Etapa 5](etapa-5-formulario.md)).
+- **Opcional, não feito:** regerar `resultados/falhas.txt` com a barreira ajustada
+  (`python provocar_falhas.py | tee resultados/falhas.txt`, cerca de US$ 0,06). O arquivo
+  continua com os textos de antes do ajuste, e essa diferença está explicada no `relatorio.md`
+  (Seções 8.3 e 10). Regerar não é necessário: o modelo pode se comportar de outro jeito, e o
+  nome inventado da falha 3 pode não se repetir.

@@ -165,11 +165,15 @@ Outros achados:
 
 ## Pendências
 
-- Salvar as capturas de tela do roteiro em `resultados/telas/` (evidência de "progresso visível",
-  "despacho editável", "decisão registrada" e "mensagem padrão no erro").
-- Reexportar `resultados/conferencias.csv` ao fim dos testes, para incluir os registros mais
-  recentes.
-- Decidir se `assets/logo_sema.png` vai para o repositório (sem ele, o PDF é gerado sem o logo).
-- Etapa 6: a medição deve usar um banco próprio, vazio a cada rodada, e não o `banco/` do app.
-- `relatorio.md`: justificar o ponto de conferência humana com a medição (taxa de discordância,
-  recusas da barreira e erros medidos na Etapa 6).
+Nenhuma. Situação final de cada item que estava pendente:
+
+- **Capturas de tela:** feitas, em [`resultados/telas/`](../resultados/telas/), com um índice
+  que liga cada captura ao que o enunciado pede. As capturas 02 a 15 são do roteiro real de
+  21/11, recortadas para mostrar só o formulário; a 01 (progresso) é de 22/11.
+- **`resultados/conferencias.csv`:** mantido com os 5 registros do roteiro, que são os citados no
+  `relatorio.md` (5 conferências, 1 discordância). O banco local tem mais 2 registros, feitos
+  depois da exportação. Eles não foram exportados, para o CSV continuar igual ao relatório.
+- **Logo:** `assets/logo_sema.png` está no repositório.
+- **Banco próprio na medição:** feito na Etapa 6 (`bancos/medicao_*.db`, apagado ao fim de cada
+  rodada).
+- **Conferência humana no relatório:** feita (Seção 9 do `relatorio.md`).
