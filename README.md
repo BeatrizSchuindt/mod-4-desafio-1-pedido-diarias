@@ -105,7 +105,7 @@ mod-4-desafio-1-pedido-diarias/
 │   ├── gabarito.json          # respostas esperadas; só a medição e os testes leem
 │   └── gerar_dados.py         # gera o acervo e o gabarito
 ├── resultados/                # saídas de todos os testes e medições
-├── docs/                      # diário de cada etapa e dúvidas sobre o enunciado
+├── docs/                      # diário de cada etapa
 │
 ├── banco/                     # fora do Git: bancos do formulário (memória do agente e conferências)
 └── bancos/                    # fora do Git: bancos descartáveis dos testes e das medições
@@ -118,7 +118,8 @@ ficam só no computador de quem executa.
 
 ### 3.1 O que é preciso
 
-- Python 3.13 (testado na 3.13.16).
+- Python 3.11 ou superior. O enunciado sugere 3.10, mas as versões do Streamlit (1.67), do
+  SQLAlchemy (2.1) e do fpdf2 (2.9) usadas aqui pedem 3.11. Testado na 3.13.16.
 - Uma chave da OpenAI, só para os comandos marcados com 💲.
 
 ### 3.2 Instalação
@@ -259,8 +260,7 @@ Os números completos estão no [`relatorio.md`](relatorio.md).
 
 ## 6. Respostas às perguntas do enunciado
 
-O enunciado anuncia quatro perguntas, mas lista três. Respondemos às três listadas (ver
-[`docs/duvidas-enunciado.md`](docs/duvidas-enunciado.md)).
+O enunciado anuncia quatro perguntas, mas lista só três. Respondemos às três listadas.
 
 ### 6.1 Que configuração de chamadas paralelas, teto de chamadas e memória você escolheu, e com base em que número?
 

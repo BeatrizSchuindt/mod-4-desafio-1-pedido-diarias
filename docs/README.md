@@ -17,8 +17,6 @@ registrado aqui.
 | 5 | Formulário de conferência | concluída | [etapa-5](etapa-5-formulario.md) |
 | 6 | Medição contra o gabarito e falhas provocadas | concluída | [etapa-6](etapa-6-medicao.md) |
 
-Dúvidas sobre o enunciado: [duvidas-enunciado.md](duvidas-enunciado.md)
-
 ## Modelo de registro de cada etapa
 
 ```markdown

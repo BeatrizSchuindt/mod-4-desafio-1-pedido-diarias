@@ -96,4 +96,4 @@ Resumo do gabarito impresso pelo gerador (consulta pessoal; **nunca é entregue 
 
 ## Pendências
 
-- Esclarecer com o professor as lacunas listadas em [duvidas-enunciado.md](duvidas-enunciado.md).
+- Nenhuma.
